@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "product": {
+        "id": "1",
+        "name": "Classic Watch",
+        "description": "A timeless accessory for your wardrobe.",
+        "price": 250,
+        "imageUrl": "https://example.com/images/classic-watch.jpg"
+      },
+      "quantity": 1
+    },
+    {
+      "product": {
+        "id": "2",
+        "name": "Sports Sneakers",
+        "description": "Perfect for running, comfortable and stylish.",
+        "price": 120,
+
+        "imageUrl": "https://example.com/images/sports-sneakers.jpg"
+      },
+      "quantity": 2
+    }
+  ],
+  "totalItems": 3,
+  "totalPrice": 490
+}

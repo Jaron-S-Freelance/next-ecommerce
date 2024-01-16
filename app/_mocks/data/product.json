@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "Classic Watch",
+    "description": "A timeless accessory for your wardrobe.",
+    "price": 250,
+    "imageUrl": "/images/classic-watch.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Sports Sneakers",
+    "description": "Perfect for running, comfortable and stylish.",
+    "price": 120,
+    "imageUrl": "/images/sports-sneakers.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Elegant Sunglasses",
+    "description": "Fashionable sunglasses to complement your style.",
+    "price": 85,
+    "imageUrl": "/images/elegant-sunglasses.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Leather Wallet",
+    "description": "A premium quality leather wallet.",
+    "price": 60,
+    "imageUrl": "/images/leather-wallet.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Bluetooth Headphones",
+    "description": "High-quality sound with noise cancellation.",
+    "price": 180,
+    "imageUrl": "/images/bluetooth-headphones.jpg"
+  }
+]
