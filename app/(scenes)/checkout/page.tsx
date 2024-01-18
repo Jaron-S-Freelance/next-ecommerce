@@ -5,4 +5,5 @@ interface Product {
   price: number;
   imageUrl: string;
   category: string;
+  tag: string;
 }

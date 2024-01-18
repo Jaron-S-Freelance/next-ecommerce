@@ -1,0 +1,87 @@
+/* Carousel container */
+.embla {
+  overflow: hidden;
+  width: 100%;
+  max-height: 90vh;
+  /* Maximum height of the carousel */
+  position: relative;
+  /* Needed for absolute positioning of children */
+}
+
+/* Container for the slides */
+.embla__container {
+  display: flex;
+  will-change: transform;
+}
+
+/* Individual slide */
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  /* Make slide height fill the container */
+  overflow: hidden;
+  /* Hide parts of the image that overflow */
+}
+
+/* Image styling */
+.embla__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Make image fill the slide */
+  object-fit: cover;
+  /* Image will cover the area, getting cropped if necessary */
+}
+
+/* Arrows */
+.embla__arrow {
+  position: absolute;
+  top: 50%;
+  /* Center vertically */
+  z-index: 10;
+  transform: translateY(-50%);
+  /* Adjust vertical alignment */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.embla__arrow--prev {
+  left: 1rem;
+  /* Distance from the left edge */
+}
+
+.embla__arrow--next {
+  right: 1rem;
+  /* Distance from the right edge */
+}
+
+/* Dots */
+.embla__dots {
+  position: absolute;
+  bottom: 10px;
+  /* Distance from the bottom of the carousel */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.embla__dot {
+  background-color: #ddd;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: #333;
+}
+
+.embla__dot--active {
+  background-color: #333;
+}

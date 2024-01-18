@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getCart } from "../_mocks/handlers/cartHandler";
+import { getCart } from "../../_mocks/handlers/cartHandler";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {

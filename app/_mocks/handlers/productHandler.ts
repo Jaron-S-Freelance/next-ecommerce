@@ -1,7 +1,8 @@
 import Product from "@/types/models/product";
+import productsData from "../data/products.json";
 
-const products: Product[] = require('../data/products.json');
+const products: Product[] = productsData;
 
 export const getProducts = (): Product[] => {
-    return products;
+  return products;
 };

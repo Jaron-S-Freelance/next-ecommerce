@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../ui/navbar/Navbar";
+import Banner from "../ui/banner/Banner";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <div>
+      <Banner />
+      <Navbar />
+    </div>
+  );
+};
 
-export default Header
+export default Header;

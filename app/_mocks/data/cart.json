@@ -6,7 +6,7 @@
         "name": "Classic Watch",
         "description": "A timeless accessory for your wardrobe.",
         "price": 250,
-        "imageUrl": "https://example.com/images/classic-watch.jpg"
+        "imageUrl": "images/carousel/classic-watch.jpg"
       },
       "quantity": 1
     },
@@ -17,7 +17,7 @@
         "description": "Perfect for running, comfortable and stylish.",
         "price": 120,
 
-        "imageUrl": "https://example.com/images/sports-sneakers.jpg"
+        "imageUrl": "images/carousel/sports-sneakers.jpg"
       },
       "quantity": 2
     }
