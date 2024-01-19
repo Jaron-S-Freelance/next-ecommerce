@@ -6,9 +6,10 @@ import "@/app/styles/emblaCarousel.css";
 
 interface ImageCarouselProp {
   images: string[];
+  className?: string;
 }
 
-const ImageCarousel = ({ images }: ImageCarouselProp) => {
+const ImageCarousel = ({ images, className }: ImageCarouselProp) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -38,7 +39,7 @@ const ImageCarousel = ({ images }: ImageCarouselProp) => {
   }, [emblaApi]);
 
   return (
-    <div className="embla" ref={emblaRef}>
+    <div className={`embla ${className}`} ref={emblaRef}>
       <div className="embla__container">
         {images.map((image, index) => (
           <div className="embla__slide" key={index}>
