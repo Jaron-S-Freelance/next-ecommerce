@@ -215,5 +215,86 @@
     "imageUrl": "/images/products/eclipse-planter.png",
     "category": "planters",
     "tags": ["new_arrival", "trending"]
+  },
+  {
+    "id": "HD013",
+    "title": "DuoTrend Cushion Set",
+    "description": "The DuoTrend Cushion Set features two modern cushions, each with a unique design. One showcases a subtle, linear geometric pattern, while the other has an organic, abstract design. The color scheme mixes muted tones with a pop of color, creating a stylish and cozy addition to any contemporary space. Made from high-quality fabric, these cushions are both comfortable and visually appealing.",
+    "price": 50.0,
+    "imageUrl": "/images/products/duotrend-cushion-set.png",
+    "category": "cushions_throws",
+    "tags": ["new_arrival", "trending"]
+  },
+  {
+    "id": "HD014",
+    "title": "Elegance Trio Pillow Set",
+    "description": "The Elegance Trio Pillow Set includes three throw pillows, each embodying a sleek, modern aesthetic. One features a monochromatic textured pattern, the second a minimalist abstract print, and the third a solid color with a luxurious fabric. This coordinated set adds a sophisticated and contemporary touch to any room.",
+    "price": 55.0,
+    "imageUrl": "/images/products/elegance-trio-pillow-set.png",
+    "category": "cushions_throws",
+    "tags": ["featured", "popular"]
+  },
+  {
+    "id": "HD015",
+    "title": "LuxCozy Modern Throw",
+    "description": "The LuxCozy Modern Throw is the epitome of understated luxury. Made from a blend of high-quality materials, it features a subtle texture that's both elegant and inviting. Lightweight yet cozy, this throw is perfect for adding a touch of warmth and sophistication to any contemporary space.",
+    "price": 70.0,
+    "imageUrl": "/images/products/luxcozy-modern-throw.png",
+    "category": "cushions_throws",
+    "tags": ["new_arrival", "trending"]
+  },
+  {
+    "id": "HD016",
+    "title": "GeoAccent Decorative Throw",
+    "description": "The GeoAccent Decorative Throw combines style with comfort. Its modern geometric pattern features bold and subtle lines in a harmonious color palette. Made from soft, high-quality fabric, it's not just a throw but a statement piece, perfect for adding a touch of modern elegance to sofas or beds.",
+    "price": 65.0,
+    "imageUrl": "/images/products/geoaccent-decorative-throw.png",
+    "category": "cushions_throws",
+    "tags": ["featured", "trending"]
+  },
+  {
+    "id": "HD017",
+    "title": "ChicHerringbone Throw",
+    "description": "The ChicHerringbone Throw marries classic design with modern style. Its subtle herringbone pattern in a soft neutral tone makes it both versatile and elegant. Made from plush, cozy fabric, this throw is perfect for snuggling up or adding a sophisticated touch to any bed or sofa.",
+    "price": 68.0,
+    "imageUrl": "/images/products/chicherringbone-throw.png",
+    "category": "cushions_throws",
+    "tags": ["new_arrival", "popular"]
+  },
+  {
+    "id": "HD018",
+    "title": "MonoContrast Tableware Set",
+    "description": "The MonoContrast Tableware Set features a minimalist design with a striking black and white color scheme. Including plates, bowls, and cups, each piece boasts a sleek, contemporary look. Perfect for both everyday use and entertaining, this set adds a modern touch to any dining experience.",
+    "price": 120.0,
+    "imageUrl": "/images/products/monocontrast-tableware-set.png",
+    "category": "tableware",
+    "tags": ["new_arrival", "featured"]
+  },
+  {
+    "id": "HD019",
+    "title": "GradientFlow Serving Platter Set",
+    "description": "The GradientFlow Serving Platter Set includes three elegantly designed platters in varying sizes, each featuring clean, fluid lines and a subtle color gradient from light grey to charcoal. Perfect for serving a range of dishes, these platters add depth and contemporary style to any dining experience.",
+    "price": 85.0,
+    "imageUrl": "/images/products/gradientflow-serving-platter-set.png",
+    "category": "tableware",
+    "tags": ["new_arrival", "popular"]
+  },
+  {
+    "id": "HD020",
+    "title": "MarbleEssence Coaster Set",
+    "description": "The MarbleEssence Coaster Set features a unique abstract marbled design in a monochrome palette. These round coasters have a smooth, glossy finish, offering both functionality and style. Perfect for contemporary settings, they protect surfaces while adding an elegant touch to any table.",
+    "price": 25.0,
+    "imageUrl": "/images/products/marbleessence-coaster-set.png",
+    "category": "tableware",
+    "tags": ["new_arrival", "trending"]
+  },
+  {
+    "id": "HD021",
+    "title": "SleekSpice Shaker Set",
+    "description": "The SleekSpice Shaker Set features a modern, cylindrical design. One shaker has a smooth texture for salt, while the other has a ribbed texture for pepper, both with a matte finish. In classic black and white, they are functional and elegant additions to any contemporary dining table.",
+    "price": 22.0,
+    "imageUrl": "/images/products/sleekspice-shaker-set.png",
+    "category": "tableware",
+    "tags": ["new_arrival", "featured"]
   }
 ]
