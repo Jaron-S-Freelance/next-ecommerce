@@ -22,6 +22,9 @@ const FeaturedProducts = () => {
 
   return (
     <div className="flex flex-col items-center my-16">
+      <h3 className="font-semibold text-md text-center underline underline-offset-2 mb-2">
+        TOP PICKS
+      </h3>
       <FilterSelector
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
