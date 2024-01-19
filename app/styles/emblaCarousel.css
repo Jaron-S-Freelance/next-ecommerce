@@ -2,7 +2,7 @@
 .embla {
   overflow: hidden;
   width: 100%;
-  max-height: 90vh;
+  max-height: 100vh;
   /* Maximum height of the carousel */
   position: relative;
   /* Needed for absolute positioning of children */
@@ -12,6 +12,7 @@
 .embla__container {
   display: flex;
   will-change: transform;
+  padding-top: 7.3rem;
 }
 
 /* Individual slide */

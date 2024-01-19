@@ -9,8 +9,8 @@ interface CategoryCardProps {
 
 const CategoryCards = () => {
   const categories = [
-    { name: "Wall Art", imageUrl: "/images/categories/wall-art.png" },
     { name: "Home Decor", imageUrl: "/images/categories/decor.png" },
+    { name: "Wall Art", imageUrl: "/images/categories/wall-art.png" },
     {
       name: "Cushions & Throws",
       imageUrl: "/images/categories/cushions-throws.png",
@@ -71,7 +71,15 @@ const CategoryCard = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.div
-        animate={{ scale: isHovered ? 1.1 : 1 }}
+        animate={{
+          scale: isHovered ? 1.1 : 1,
+          transition: {
+            type: "spring",
+            duration: 0.3,
+            damping: 30,
+            stiffness: 200,
+          },
+        }}
         className="w-full h-full"
       >
         <Image
@@ -85,9 +93,9 @@ const CategoryCard = ({
         {categoryName}
         <motion.div
           animate={{
-            x: isHovered ? 0 : -20,
             opacity: isHovered ? 100 : 0,
             width: isHovered ? 16 : 0,
+            transition: { duration: 0.3 },
           }}
           className="-mr-1"
         >
