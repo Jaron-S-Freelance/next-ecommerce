@@ -1,12 +1,17 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { getCart } from "../../_mocks/handlers/cartHandler";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === "GET") {
-    const cart = getCart();
-    res.status(200).json(cart);
-  } else {
-    res.setHeader("Allow", ["GET"]);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+export async function GET() {
+  try {
+    const data = getCart();
+
+    return Response.json({ data });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return new Response(JSON.stringify({ error: "Failed to fetch cart" }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 }
