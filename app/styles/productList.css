@@ -1,0 +1,48 @@
+.embla {
+  --slide-spacing: 1rem;
+  --slide-size: 20%;
+  /* Each slide takes up 20% of the container's width */
+  padding: 1.6rem;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  max-width: 100%;
+  /* Ensures the viewport does not overflow */
+}
+
+.embla__container {
+  display: flex;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  padding-left: var(--slide-spacing);
+  box-sizing: border-box;
+}
+
+/* Ensure ProductCard fits within the slide */
+.embla__slide .product-card {
+  width: 100%;
+  /* Adjust class name as per your ProductCard's root element */
+}
+
+
+.embla__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.embla__arrow--prev {
+  left: 10px;
+}
+
+.embla__arrow--next {
+  right: 10px;
+}
