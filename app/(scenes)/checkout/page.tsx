@@ -1,8 +1,12 @@
-import Layout from "@/app/layout";
-import React from "react";
+import Layout from "@/app/_components/shared/Layout";
 
 const checkout = () => {
-  return <Layout>Checkout Page</Layout>;
+  return (
+    <Layout>
+      <h2>Checkout Page</h2>
+      <span>Nothing here yet...</span>
+    </Layout>
+  );
 };
 
 export default checkout;
