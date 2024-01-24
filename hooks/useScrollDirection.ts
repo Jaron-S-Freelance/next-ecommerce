@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 const useScrollDirection = () => {
@@ -8,7 +10,6 @@ const useScrollDirection = () => {
 
     const updateScrollDir = () => {
       const scrollY = window.scrollY;
-
 
       setScrollDir(scrollY > lastScrollY ? "down" : "up");
       lastScrollY = scrollY;
