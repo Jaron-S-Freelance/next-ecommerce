@@ -1,3 +1,5 @@
+"use client";
+
 import useOutsideAlerter from "@/hooks/useOutsideAlerter";
 import { motion } from "framer-motion";
 import Link from "next/link";
