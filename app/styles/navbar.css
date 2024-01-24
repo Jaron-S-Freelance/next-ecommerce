@@ -1,0 +1,24 @@
+.hover-underline {
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-underline::after,
+.active-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  bottom: -3px;
+  left: 0;
+  background-color: #fff;
+  /* Your desired underline color */
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-underline:hover::after,
+.active-underline::after {
+  visibility: visible;
+  width: 100%;
+}

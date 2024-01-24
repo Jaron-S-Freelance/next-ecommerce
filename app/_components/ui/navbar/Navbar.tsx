@@ -5,10 +5,20 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { IoChevronDownOutline } from "react-icons/io5";
+import "@/app/styles/navbar.css";
+import ProductList from "./ProductList";
+import { getProducts } from "@/app/_mocks/handlers/productHandler";
+import CategoryMenu from "./CategoryMenu";
 
 const Navbar = () => {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const handleMouseEnter = (dropdown: string | null) =>
+    setActiveDropdown(dropdown);
+  const handleMouseLeave = () => setActiveDropdown(null);
+
   return (
-    <div className="navbar bg-base-300">
+    <div className="navbar bg-base-300 relative">
       {/* Logo & Mobile Menu*/}
       <div className="navbar-start">
         <MobileMenu />
@@ -28,7 +38,11 @@ const Navbar = () => {
       </div>
       {/* Navigation */}
       <div className="navbar-center hidden lg:flex">
-        <NavbarLinks />
+        <NavbarLinks
+          onHover={handleMouseEnter}
+          onLeave={handleMouseLeave}
+          activeDropdown={activeDropdown}
+        />
       </div>
       <div className="navbar-end">
         {/* Search */}
@@ -37,6 +51,18 @@ const Navbar = () => {
         <Cart />
         {/* Profile */}
         <Profile />
+      </div>
+      {/* Dropdowns */}
+      <div
+        className={`absolute left-0 w-full bg-base-100 shadow z-10 ${
+          activeDropdown ? "block" : "hidden"
+        }`}
+        onMouseEnter={() => handleMouseEnter(activeDropdown)}
+        onMouseLeave={handleMouseLeave}
+      >
+        {activeDropdown === "shop" && <ShopDropdown />}
+        {activeDropdown === "popular" && <PopularDropdown />}
+        {activeDropdown === "newArrivals" && <NewArrivalsDropdown />}
       </div>
     </div>
   );
@@ -157,71 +183,137 @@ const MobileMenu = () => {
         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
       >
         <li>
-          <a>Item 1</a>
+          <a>Shop</a>
         </li>
         <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
+          <a>Popular</a>
         </li>
         <li>
-          <a>Item 3</a>
+          <a>New Arrivals</a>
+        </li>
+        <li>
+          <a>About</a>
+        </li>
+        <li>
+          <a>Contact</a>
         </li>
       </ul>
     </div>
   );
 };
 
-const NavbarLinks = () => {
+interface NavbarLinksProps {
+  onHover: (dropdown: string) => void;
+  onLeave: () => void;
+  activeDropdown: string | null;
+}
+
+const NavbarLinks = ({
+  onHover,
+  onLeave,
+  activeDropdown,
+}: NavbarLinksProps) => {
+  const isActive = (dropdown: string) => activeDropdown === dropdown;
   return (
-    <ul className="menu menu-horizontal px-1">
-      <li>
-        <div className="dropdown dropdown-bottom">
-          <div tabIndex={0} className="flex items-center gap-1">
-            Shop
-            <IoChevronDownOutline size={"14px"} />
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+    <ul className="menu-horizontal px-1 gap-8">
+      <li
+        onMouseEnter={() => onHover("shop")}
+        onMouseLeave={onLeave}
+        className="py-6 -my-6"
+      >
+        <div className="flex items-center gap-1">
+          <span
+            className={`hover-underline ${
+              isActive("shop") ? "active-underline" : ""
+            }`}
           >
-            <li>
-              <a>Wall Art</a>
-            </li>
-            <li>
-              <a>Home Decor</a>
-            </li>
-            <li>
-              <a>Cushions & Throws</a>
-            </li>
-            <li>
-              <a>Planters</a>
-            </li>
-            <li>
-              <a>Tableware</a>
-            </li>
-          </ul>
+            Shop
+          </span>
+          <IoChevronDownOutline size={"14px"} />
+        </div>
+      </li>
+      <li
+        onMouseEnter={() => onHover("popular")}
+        onMouseLeave={onLeave}
+        className="py-6 -my-6"
+      >
+        <div className="flex items-center gap-1">
+          <span
+            className={`hover-underline ${
+              isActive("popular") ? "active-underline" : ""
+            }`}
+          >
+            Popular
+          </span>
+        </div>
+      </li>
+      <li
+        onMouseEnter={() => onHover("newArrivals")}
+        onMouseLeave={onLeave}
+        className="py-6 -my-6"
+      >
+        <div className="flex items-center gap-1">
+          <span
+            className={`hover-underline ${
+              isActive("newArrivals") ? "active-underline" : ""
+            }`}
+          >
+            New Arrivals
+          </span>
         </div>
       </li>
       <li>
-        <a>Popular</a>
+        <a>
+          <span className="hover-underline">About</span>
+        </a>
       </li>
       <li>
-        <a>New Arrivals</a>
-      </li>
-      <li>
-        <a>About</a>
-      </li>
-      <li>
-        <a>Contact</a>
+        <a>
+          <span className="hover-underline">Contact</span>
+        </a>
       </li>
     </ul>
+  );
+};
+
+const ShopDropdown = () => {
+  return (
+    <div
+      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-4"
+      style={{ top: "2.3rem" }}
+    >
+      <CategoryMenu />
+    </div>
+  );
+};
+
+const PopularDropdown = () => {
+  const popularProducts = getProducts().filter((product) =>
+    product.tags?.includes("popular")
+  );
+  return (
+    <div
+      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-52"
+      style={{ top: "2.3rem" }}
+    >
+      <h3 className="font-semibold text-xl my-6">Our Most Popular Items</h3>
+      <ProductList products={popularProducts} />
+    </div>
+  );
+};
+
+const NewArrivalsDropdown = () => {
+  const newProducts = getProducts().filter((product) =>
+    product.tags?.includes("new_arrival")
+  );
+  return (
+    <div
+      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-52"
+      style={{ top: "2.3rem" }}
+    >
+      <h3 className="font-semibold text-xl my-6">New Arrivals</h3>
+      <ProductList products={newProducts} />
+    </div>
   );
 };
 
