@@ -11,16 +11,20 @@ interface ProductListProps {
 const ProductList = ({ products }: ProductListProps) => {
   const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      breakpoint: { max: 4000, min: 2500 },
+      items: 7,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1500 },
-      items: 5,
+      breakpoint: { max: 2500, min: 1750 },
+      items: 6,
     },
     laptop: {
-      breakpoint: { max: 1500, min: 1024 },
+      breakpoint: { max: 1750, min: 1500 },
       items: 4,
+    },
+    small_laptop: {
+      breakpoint: { max: 1500, min: 1024 },
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -45,7 +49,7 @@ const ProductList = ({ products }: ProductListProps) => {
       itemClass="carousel-item-padding-40-px"
     >
       {products.map((product) => (
-        <div key={product.id}>
+        <div key={product.id} className="flex justify-center">
           <ProductCard
             product={product}
             disableActions
