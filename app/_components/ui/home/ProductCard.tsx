@@ -132,7 +132,7 @@ const ProductCard = ({
       </div>
       <Rating rating={5} />
       <h3 className="text-center font-medium">
-        <Link href={`/product/${id}`}>{title}</Link>
+        <Link href={`/products/${id}`}>{title}</Link>
       </h3>
       <span className="flex justify-center">${price.toFixed(2)}</span>
     </div>
