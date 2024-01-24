@@ -1,9 +1,8 @@
-interface Product {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-  category: string;
-  tag: string;
-}
+import Layout from "@/app/layout";
+import React from "react";
+
+const checkout = () => {
+  return <Layout>Checkout Page</Layout>;
+};
+
+export default checkout;
