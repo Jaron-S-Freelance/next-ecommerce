@@ -7,6 +7,7 @@ import FeaturedProducts from "@/app/_components/ui/home/FeaturedProducts";
 import carouselData from "@/app/_mocks/data/carousel";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Product from "@/types/models/product";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -19,10 +20,16 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout>
-      <Carousel images={images} />
-      <CategoryCards />
-      <FeaturedProducts />
-    </Layout>
+    <>
+      <Head>
+        <title>Fusion Design | Home</title>
+        <meta name="description" content={""} />
+      </Head>
+      <Layout>
+        <Carousel images={images} />
+        <CategoryCards />
+        <FeaturedProducts />
+      </Layout>
+    </>
   );
 }
