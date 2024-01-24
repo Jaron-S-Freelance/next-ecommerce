@@ -41,12 +41,10 @@
   top: 50%;
   /* Center vertically */
   z-index: 10;
-  transform: translateY(-50%);
   /* Adjust vertical alignment */
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  padding: 0.5rem;
   cursor: pointer;
 }
 

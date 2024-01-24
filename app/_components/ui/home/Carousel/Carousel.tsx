@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
-import "@/app/styles/emblaCarousel.css";
+import "@/app/styles/homeCarousel.css";
 
 interface ImageCarouselProp {
   images: string[];
@@ -53,14 +53,8 @@ const ImageCarousel = ({ images, className }: ImageCarouselProp) => {
           </div>
         ))}
       </div>
-      <PrevButton
-        onClick={scrollPrev}
-        enabled={emblaApi ? emblaApi.canScrollPrev() : false}
-      />
-      <NextButton
-        onClick={scrollNext}
-        enabled={emblaApi ? emblaApi.canScrollNext() : false}
-      />
+      <PrevButton onClick={scrollPrev} />
+      <NextButton onClick={scrollNext} />
       <IndicatorDots
         slides={images.length}
         selectedIndex={selectedIndex}
@@ -70,33 +64,21 @@ const ImageCarousel = ({ images, className }: ImageCarouselProp) => {
   );
 };
 
-const PrevButton: React.FC<{ enabled: boolean; onClick: () => void }> = ({
-  enabled,
-  onClick,
-}) => (
+const PrevButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <button
     onClick={onClick}
-    className={`btn btn-circle embla__arrow embla__arrow--prev ${
-      enabled ? "" : "opacity-50"
-    }`}
-    disabled={!enabled}
+    className="embla__arrow embla__arrow--prev btn btn-circle"
   >
-    <IoChevronBack />
+    <IoChevronBack fontSize="22px" />
   </button>
 );
 
-const NextButton: React.FC<{ enabled: boolean; onClick: () => void }> = ({
-  enabled,
-  onClick,
-}) => (
+const NextButton: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <button
     onClick={onClick}
-    className={`btn btn-circle embla__arrow embla__arrow--next ${
-      enabled ? "" : "opacity-50"
-    }`}
-    disabled={!enabled}
+    className="embla__arrow embla__arrow--next btn btn-circle"
   >
-    <IoChevronForward />
+    <IoChevronForward fontSize="22px" />
   </button>
 );
 

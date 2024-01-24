@@ -3,7 +3,7 @@ const carouselData = [
     id: "1",
     title: "Cushions & Throws",
     url: "/cushions-throws",
-    imageUrl: "/images/carousel/slide-6.png",
+    imageUrl: "/images/carousel/slide-1.png",
   },
   {
     id: "2",
