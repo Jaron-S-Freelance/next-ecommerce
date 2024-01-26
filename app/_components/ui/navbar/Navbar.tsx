@@ -47,11 +47,8 @@ const Navbar = () => {
         />
       </div>
       <div className="navbar-end">
-        {/* Search */}
         <SearchButton />
-        {/* Cart */}
         <Cart />
-        {/* Profile */}
         <Profile />
       </div>
       {/* Dropdowns */}
@@ -298,7 +295,7 @@ const PopularDropdown = () => {
       className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-52"
       style={{ top: "2.3rem" }}
     >
-      <h3 className="font-semibold text-xl my-6">Our Most Popular Items</h3>
+      <h3 className="font-semibold text-xl mb-6">Our Most Popular Items</h3>
       <ProductList products={popularProducts} />
     </div>
   );
@@ -313,7 +310,7 @@ const NewArrivalsDropdown = () => {
       className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-52"
       style={{ top: "2.3rem" }}
     >
-      <h3 className="font-semibold text-xl my-6">New Arrivals</h3>
+      <h3 className="font-semibold text-xl mb-6">New Arrivals</h3>
       <ProductList products={newProducts} />
     </div>
   );

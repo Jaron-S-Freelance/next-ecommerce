@@ -43,9 +43,8 @@ const ProductList = ({ products }: ProductListProps) => {
       autoPlay
       autoPlaySpeed={3000}
       keyBoardControl={true}
-      arrows={false}
       infinite
-      containerClass="carousel-container"
+      containerClass="carousel-container "
       itemClass="carousel-item-padding-40-px"
     >
       {products.map((product) => (
