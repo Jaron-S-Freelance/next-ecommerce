@@ -116,7 +116,7 @@ const ColorSelector = () => {
           <button
             key={color}
             onClick={() => handleButtonClick(color)}
-            className={`btn btn-circle btn-sm bg-${color} glass rounded-full ring-${color} ${
+            className={`btn btn-circle btn-sm glass bg-${color} ring-${color} ${
               selectedColor === color
                 ? `ring-1 ring-offset-4 ring-offset-[#161b22]`
                 : ""
