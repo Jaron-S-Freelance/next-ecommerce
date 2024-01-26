@@ -1,16 +1,20 @@
+"use client";
+
+import Layout from "@/app/_components/shared/Layout";
+import ProductDetails from "@/app/_components/ui/products/ProductDetails";
+import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Head from "next/head";
 
-const productDetails = (params: { id: string }) => {
-  const productId = params.id;
+const productDetails = ({ params }: { params: { id: string } }) => {
+  console.log(params.id);
+  const product = getProducts().find((product) => product.id === params.id);
   return (
     <>
       <Head>
         <title>Fusion Design | Product</title>
         <meta name="description" content={""} />
       </Head>
-
-      <h2>Product Page</h2>
-      <span>Nothing here yet...</span>
+      <Layout>{product && <ProductDetails product={product} />}</Layout>
     </>
   );
 };

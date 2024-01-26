@@ -5,6 +5,7 @@
     "description": "Geometric Harmony is an abstract wall art piece that masterfully blends cool and warm tones, featuring hues of blue, orange, and grey. Encased in a minimalist white frame, this artwork exudes a modern elegance, making it a perfect focal point for any contemporary living room or office space. Its clean and sophisticated design aligns seamlessly with modern interior aesthetics.",
     "price": 120.0,
     "imageUrl": "/images/products/geometric-harmony.png",
+    "rating": 5,
     "category": "wall_art",
     "tags": ["new_arrival"]
   },
@@ -14,6 +15,7 @@
     "description": "Tranquil Vista is a modern wall art that captures the essence of a stylized landscape. It features a harmonious blend of organic shapes in muted colors of green, beige, and brown, creating a serene and elegant ambiance. The artwork is framed in a sleek, thin black frame, enhancing its sophisticated appeal. Designed to be a captivating addition to any contemporary setting, this piece seamlessly integrates into various decor styles, making it a versatile choice for your online store.",
     "price": 150.0,
     "imageUrl": "/images/products/tranquil-vista.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["featured"]
   },
@@ -23,6 +25,7 @@
     "description": "Urban Minimalism is a striking wall art piece that features a minimalist cityscape. The artwork is characterized by its simple, clean lines and a monochrome palette of black, white, and grey, embodying the essence of urban sophistication. Framed in a metallic silver frame, it adds a contemporary and chic touch to any space. This piece is perfect for those who admire the sleekness of urban aesthetics and minimalist design in their home or office environments.",
     "price": 135.0,
     "imageUrl": "/images/products/urban-minimalism.png",
+    "rating": 5,
     "category": "wall_art",
     "tags": ["trending"]
   },
@@ -32,6 +35,7 @@
     "description": "Oceanic Essence is a captivating modern wall art piece that abstractly interprets the ocean's beauty. It showcases fluid, wave-like forms in various shades of blue and turquoise, conveying movement and depth. The artwork is complemented by a simple white frame, highlighting the cool, soothing tones of the sea. Ideal for creating a tranquil atmosphere, this piece is a perfect addition to contemporary home or office spaces, designed to bring the serenity of the ocean indoors.",
     "price": 140.0,
     "imageUrl": "/images/products/oceanic-essence.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["popular"]
   },
@@ -41,6 +45,7 @@
     "description": "Vibrant Florals is a contemporary wall art piece that brings a fresh, artistic interpretation to a floral theme. This artwork features stylized flowers in a vivid color palette of red, yellow, and pink, set against a dark backdrop for striking contrast. Encased in a sleek black frame, the bold colors are further accentuated, making the piece a lively and eye-catching addition to any modern interior. Perfect for adding a pop of color and flair, it's an excellent choice for your online store.",
     "price": 130.0,
     "imageUrl": "/images/products/vibrant-florals.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["new_arrival"]
   },
@@ -50,6 +55,7 @@
     "description": "Abstract Mountain Majesty is a modern wall art piece that offers an artistic take on a mountain landscape. The design features bold, angular shapes and a rich color palette of earthy browns and greens, complemented by hints of blue and white. Enclosed in a natural wood frame, this artwork exudes an organic and earthy charm. It's an ideal choice for those looking to incorporate elements of nature's grandeur into contemporary home or office spaces. This piece is perfect for an online store, focusing solely on the art with a clean background.",
     "price": 145.0,
     "imageUrl": "/images/products/abstract-mountain-majesty.png",
+    "rating": 5,
     "category": "wall_art",
     "tags": ["featured"]
   },
@@ -59,6 +65,7 @@
     "description": "Nocturnal Cityscape is a contemporary wall art piece that captures the dynamic essence of a modern city skyline at night. The artwork presents a stunning silhouette of the city against a backdrop of deep blues, purples, and glimmers of gold representing city lights. Framed in sleek, matte black, it complements the nocturnal theme and adds an air of sophistication. This piece encapsulates the vibrant energy of urban life, making it an excellent choice for modern living spaces or offices looking for a touch of urban flair.",
     "price": 155.0,
     "imageUrl": "/images/products/nocturnal-cityscape.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["trending"]
   },
@@ -68,6 +75,7 @@
     "description": "Geometric Forest is a modern wall art piece that offers an abstract representation of a lush forest. It features stylized trees composed of geometric shapes, rendered in a palette of greens, browns, and other earthy tones. The artwork is encased in a simple light wood frame, which beautifully complements its natural theme. This piece skillfully blends the serenity of nature with a contemporary abstract style, making it a versatile addition to both home and office environments.",
     "price": 160.0,
     "imageUrl": "/images/products/geometric-forest.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["popular"]
   },
@@ -77,6 +85,7 @@
     "description": "Vibrant City Abstract is a modern wall art piece that brings the lively essence of a cityscape to life through abstract art. It features a riot of colors, with bright yellows, reds, and greens, capturing the dynamic and energetic spirit of urban life. The artwork is framed in a simple yet elegant dark-colored frame, providing a striking contrast to the vivid colors. This piece is perfect for adding a burst of energy and color to contemporary spaces, making it suitable for modern homes or office environments.",
     "price": 150.0,
     "imageUrl": "/images/products/vibrant-city-abstract.png",
+    "rating": 3,
     "category": "wall_art",
     "tags": ["popular"]
   },
@@ -86,6 +95,7 @@
     "description": "Oceanic Serenity is a modern wall art piece that captures the essence of the sea. With an abstract blend of blues and greens, it creates a calming and serene atmosphere. The minimalist design is enriched with fluid lines and subtle textures, reminiscent of the ocean's tranquil beauty. Perfect for bringing a sense of peace and serenity to any contemporary space.",
     "price": 180,
     "imageUrl": "/images/products/oceanic-serenity.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["popular", "trending"]
   },
@@ -96,6 +106,7 @@
     "description": "Abstract Elegance is a captivating piece of wall art that masterfully combines cool and warm hues in an abstract composition. Featuring a mix of geometric shapes and fluid lines, it exudes sophistication and modernity. Ideal for minimalist spaces, this artwork is a testament to contemporary design, adding a touch of elegance to any modern interior.",
     "price": 150,
     "imageUrl": "/images/products/abstract-elegance.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["featured", "new_arrival"]
   },
@@ -105,6 +116,7 @@
     "description": "Botanical Vibrance is a contemporary wall art piece that brings the beauty of nature into your home with a modern twist. Featuring bright, lively colors and abstract elements, this artwork captures the essence of plant life in a bold and elegant manner. It's a perfect fit for modern, stylish interiors, offering a splash of color and sophistication.",
     "price": 175,
     "imageUrl": "/images/products/botanical-vibrance.png",
+    "rating": 4,
     "category": "wall_art",
     "tags": ["trending", "popular"]
   },
@@ -114,6 +126,7 @@
     "description": "Introducing the GeoSleek Vase, a testament to modern minimalism. Crafted with clean, geometric lines, this vase is perfect for those who love simplicity with a touch of elegance. Its matte finish and subtle contours make it an ideal centerpiece for contemporary spaces.",
     "price": 49.99,
     "imageUrl": "/images/products/geosleek-vase.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["new_arrival", "trending"]
   },
@@ -123,6 +136,7 @@
     "description": "The TimeArt Wall Clock merges the essence of art with the utility of timekeeping. Featuring an abstract, minimalist design with a blend of metallic and matte textures, it's more than a clock; it's a statement piece for any modern interior. Its elegant form captures the eye, making it a focal point in contemporary decor.",
     "price": 65.0,
     "imageUrl": "/images/products/timeart-wall-clock.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["featured", "popular"]
   },
@@ -132,6 +146,7 @@
     "description": "Elevate your space with the LuminCurve Table Lamp, where elegance meets modern design. Crafted with a blend of glass and brushed metal, its sleek silhouette and minimalist lampshade create a captivating presence. Perfect for those who seek a stylish yet functional lighting solution for their contemporary spaces.",
     "price": 75.0,
     "imageUrl": "/images/products/lumincurve-table-lamp.png",
+    "rating": 5,
     "category": "home_decor",
     "tags": ["new_arrival", "featured"]
   },
@@ -141,6 +156,7 @@
     "description": "Add a splash of modern art to your space with the GeoVibe Cushion Set. These cushions boast a geometric pattern with a vibrant yet sophisticated color palette. Crafted from high-quality fabric, they are designed to offer both style and comfort, making them a perfect match for contemporary homes seeking a bold, tasteful touch.",
     "price": 40.0,
     "imageUrl": "/images/products/geovibe-cushion-set.png",
+    "rating": 4,
     "category": "cushions_throws",
     "tags": ["trending", "popular"]
   },
@@ -150,6 +166,7 @@
     "description": "The Minimalist Abstract Rug brings a blend of subtlety and sophistication to your floors. Featuring a minimalist abstract design with neutral tones and a splash of color, this rug focuses on texture and tone variations, perfect for modern interiors. It's designed to add warmth and style, complementing a variety of contemporary settings.",
     "price": 120.0,
     "imageUrl": "/images/products/minimalist-abstract-rug.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["new_arrival", "featured"]
   },
@@ -159,6 +176,7 @@
     "description": "The SleekCylindro Planter epitomizes modern minimalism. Its cylindrical shape and smooth, matte finish in a solid muted color bring understated elegance to any space. Perfect for indoor plants, this planter is designed for those who love clean lines and a minimalist aesthetic in their home decor.",
     "price": 35.0,
     "imageUrl": "/images/products/sleekcylindro-planter.png",
+    "rating": 5,
     "category": "planters",
     "tags": ["trending", "new_arrival"]
   },
@@ -168,6 +186,7 @@
     "description": "The PureForm Ceramic Vase embodies minimalist elegance. Its cylindrical shape and smooth matte white finish offer a clean, understated look. Perfect for those who appreciate the beauty in simplicity, this vase is a versatile addition to any modern interior, complementing without overwhelming.",
     "price": 30.0,
     "imageUrl": "/images/products/pureform-ceramic-vase.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["new_arrival", "trending"]
   },
@@ -177,6 +196,7 @@
     "description": "The LinearSleek Wall Shelf offers a minimalist approach to storage and display. Its sleek, linear design and matte black finish make it a stylish yet functional piece, perfect for modern interiors. Ideal for books, plants, or small decor items, this shelf brings clean lines and simplicity to any wall.",
     "price": 45.0,
     "imageUrl": "/images/products/linearsleek-wall-shelf.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["new_arrival", "popular"]
   },
@@ -186,6 +206,7 @@
     "description": "The ElegArc Floor Lamp combines sleek design with functionality. Its slim, metallic stand arches gracefully, holding a minimalist lampshade, perfect for modern settings. The lamp's streamlined form and elegant simplicity make it a versatile lighting solution for contemporary living spaces or offices.",
     "price": 95.0,
     "imageUrl": "/images/products/elegarc-floor-lamp.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["new_arrival", "featured"]
   },
@@ -195,6 +216,7 @@
     "description": "The GeoSharp Coffee Table is a blend of functionality and modern art. Its sleek rectangular top and distinctive geometric base create a striking, uncluttered design. With sharp lines and a smooth finish in a neutral color scheme, this table is a versatile centerpiece for any contemporary interior.",
     "price": 110.0,
     "imageUrl": "/images/products/geosharp-coffee-table.png",
+    "rating": 4,
     "category": "home_decor",
     "tags": ["new_arrival", "popular"]
   },
@@ -204,6 +226,7 @@
     "description": "The TrioModern Planters Set features three distinct yet harmonious designs. Each planter boasts a minimalist shape with a matte finish, varying in height to create visual interest. With a neutral color palette, these planters are perfect for showcasing the natural beauty of plants, adding a contemporary touch to any indoor space.",
     "price": 60.0,
     "imageUrl": "/images/products/triomodern-planters-set.png",
+    "rating": 4,
     "category": "planters",
     "tags": ["new_arrival", "featured"]
   },
@@ -213,6 +236,7 @@
     "description": "The Eclipse Planter epitomizes modern elegance in home decor. Crafted from matte black ceramic, its cylindrical shape is supported by three polished stainless steel legs, offering a floating appearance. Ideal for indoor plants, this medium-sized planter is a testament to simplicity and contemporary design.",
     "price": 75,
     "imageUrl": "/images/products/eclipse-planter.png",
+    "rating": 4,
     "category": "planters",
     "tags": ["new_arrival", "trending"]
   },
@@ -222,6 +246,7 @@
     "description": "The DuoTrend Cushion Set features two modern cushions, each with a unique design. One showcases a subtle, linear geometric pattern, while the other has an organic, abstract design. The color scheme mixes muted tones with a pop of color, creating a stylish and cozy addition to any contemporary space. Made from high-quality fabric, these cushions are both comfortable and visually appealing.",
     "price": 50.0,
     "imageUrl": "/images/products/duotrend-cushion-set.png",
+    "rating": 5,
     "category": "cushions_throws",
     "tags": ["new_arrival", "trending"]
   },
@@ -231,6 +256,7 @@
     "description": "The Elegance Trio Pillow Set includes three throw pillows, each embodying a sleek, modern aesthetic. One features a monochromatic textured pattern, the second a minimalist abstract print, and the third a solid color with a luxurious fabric. This coordinated set adds a sophisticated and contemporary touch to any room.",
     "price": 55.0,
     "imageUrl": "/images/products/elegance-trio-pillow-set.png",
+    "rating": 4,
     "category": "cushions_throws",
     "tags": ["featured", "popular"]
   },
@@ -240,6 +266,7 @@
     "description": "The LuxCozy Modern Throw is the epitome of understated luxury. Made from a blend of high-quality materials, it features a subtle texture that's both elegant and inviting. Lightweight yet cozy, this throw is perfect for adding a touch of warmth and sophistication to any contemporary space.",
     "price": 70.0,
     "imageUrl": "/images/products/luxcozy-modern-throw.png",
+    "rating": 4,
     "category": "cushions_throws",
     "tags": ["new_arrival", "trending"]
   },
@@ -249,6 +276,7 @@
     "description": "The GeoAccent Decorative Throw combines style with comfort. Its modern geometric pattern features bold and subtle lines in a harmonious color palette. Made from soft, high-quality fabric, it's not just a throw but a statement piece, perfect for adding a touch of modern elegance to sofas or beds.",
     "price": 65.0,
     "imageUrl": "/images/products/geoaccent-decorative-throw.png",
+    "rating": 4,
     "category": "cushions_throws",
     "tags": ["featured", "trending"]
   },
@@ -258,6 +286,7 @@
     "description": "The ChicHerringbone Throw marries classic design with modern style. Its subtle herringbone pattern in a soft neutral tone makes it both versatile and elegant. Made from plush, cozy fabric, this throw is perfect for snuggling up or adding a sophisticated touch to any bed or sofa.",
     "price": 68.0,
     "imageUrl": "/images/products/chicherringbone-throw.png",
+    "rating": 5,
     "category": "cushions_throws",
     "tags": ["new_arrival", "popular"]
   },
@@ -267,6 +296,7 @@
     "description": "The MonoContrast Tableware Set features a minimalist design with a striking black and white color scheme. Including plates, bowls, and cups, each piece boasts a sleek, contemporary look. Perfect for both everyday use and entertaining, this set adds a modern touch to any dining experience.",
     "price": 120.0,
     "imageUrl": "/images/products/monocontrast-tableware-set.png",
+    "rating": 4,
     "category": "tableware",
     "tags": ["new_arrival", "featured"]
   },
@@ -276,6 +306,7 @@
     "description": "The GradientFlow Platter Set includes three elegantly designed platters in varying sizes, each featuring clean, fluid lines and a subtle color gradient from light grey to charcoal. Perfect for serving a range of dishes, these platters add depth and contemporary style to any dining experience.",
     "price": 85.0,
     "imageUrl": "/images/products/gradientflow-serving-platter-set.png",
+    "rating": 4,
     "category": "tableware",
     "tags": ["new_arrival", "popular"]
   },
@@ -285,6 +316,7 @@
     "description": "The MarbleEssence Coaster Set features a unique abstract marbled design in a monochrome palette. These round coasters have a smooth, glossy finish, offering both functionality and style. Perfect for contemporary settings, they protect surfaces while adding an elegant touch to any table.",
     "price": 25.0,
     "imageUrl": "/images/products/marbleessence-coaster-set.png",
+    "rating": 4,
     "category": "tableware",
     "tags": ["new_arrival", "trending"]
   },
@@ -294,6 +326,7 @@
     "description": "The SleekSpice Shaker Set features a modern, cylindrical design. One shaker has a smooth texture for salt, while the other has a ribbed texture for pepper, both with a matte finish. In classic black and white, they are functional and elegant additions to any contemporary dining table.",
     "price": 22.0,
     "imageUrl": "/images/products/sleekspice-shaker-set.png",
+    "rating": 5,
     "category": "tableware",
     "tags": ["new_arrival", "featured"]
   }

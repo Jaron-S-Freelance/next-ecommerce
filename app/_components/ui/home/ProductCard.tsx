@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import { FaCartPlus, FaEye } from "react-icons/fa";
+import Rating from "../products/Rating";
 
 interface ProductCardProps {
   product: Product;
@@ -20,7 +20,7 @@ const ProductCard = ({
   width,
   height,
 }: ProductCardProps) => {
-  const { id, title, description, price, imageUrl, category } = product;
+  const { id, title, description, price, imageUrl, rating, category } = product;
 
   const router = useRouter();
 
@@ -130,33 +130,11 @@ const ProductCard = ({
           </div>
         )}
       </div>
-      <Rating rating={5} />
+      <Rating rating={rating} />
       <h3 className="text-center font-medium">
         <Link href={`/products/${id}`}>{title}</Link>
       </h3>
       <span className="flex justify-center">${price.toFixed(2)}</span>
-    </div>
-  );
-};
-
-const Rating = ({ rating }: { rating: number }) => {
-  const totalStars = 5;
-
-  const renderStar = (index: number) => {
-    if (rating >= index + 1) {
-      return <BsStarFill />;
-    } else if (rating >= index + 0.5) {
-      return <BsStarHalf />;
-    } else {
-      return <BsStar />;
-    }
-  };
-
-  return (
-    <div className="flex justify-center m-2 gap-0.5">
-      {Array.from({ length: totalStars }, (_, index) => (
-        <span key={index}>{renderStar(index)}</span>
-      ))}
     </div>
   );
 };
