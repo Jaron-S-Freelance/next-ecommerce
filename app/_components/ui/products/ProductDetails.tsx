@@ -1,6 +1,8 @@
+"use client";
+
 import Product from "@/types/models/product";
 import Rating from "./Rating";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
 import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa";
@@ -98,6 +100,10 @@ const ColorSelector = () => {
       ? "Yellow"
       : "";
 
+  useEffect(() => {
+    console.log(selectedColor);
+  }, [selectedColor]);
+
   return (
     <>
       <h3 className="flex py-2">
@@ -110,7 +116,7 @@ const ColorSelector = () => {
           <button
             key={color}
             onClick={() => handleButtonClick(color)}
-            className={`btn btn-circle btn-sm glass bg-${color} rounded-full ${
+            className={`btn btn-circle btn-sm bg-${color} glass rounded-full ${
               selectedColor === color
                 ? `ring-1 ring-offset-4 ring-offset-[#161b22] ring-${color}`
                 : ""

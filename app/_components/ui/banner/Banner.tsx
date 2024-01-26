@@ -34,7 +34,7 @@ const Banner = () => {
           .map(() => (
             <>
               {marqueeTexts.map((text, index) => (
-                <span key={index}>
+                <span key={`banner-${index}`}>
                   {text} <span className="mx-6">-</span>
                 </span>
               ))}

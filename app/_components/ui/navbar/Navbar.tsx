@@ -218,7 +218,7 @@ const NavbarLinks = ({
       <li
         onMouseEnter={() => onHover("shop")}
         onMouseLeave={onLeave}
-        className="py-6 -my-6"
+        className="p-6 -m-6"
       >
         <div className="flex items-center gap-1">
           <span
@@ -234,7 +234,7 @@ const NavbarLinks = ({
       <li
         onMouseEnter={() => onHover("popular")}
         onMouseLeave={onLeave}
-        className="py-6 -my-6"
+        className="p-6 -m-6"
       >
         <div className="flex items-center gap-1">
           <span
@@ -249,7 +249,7 @@ const NavbarLinks = ({
       <li
         onMouseEnter={() => onHover("newArrivals")}
         onMouseLeave={onLeave}
-        className="py-6 -my-6"
+        className="p-6 -m-6"
       >
         <div className="flex items-center gap-1">
           <span
