@@ -2,15 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 
-const ColorSelector = () => {
-  const [selectedColor, setSelectedColor] = useState<string>("primary");
+type ColorType = "primary" | "secondary" | "warning";
 
-  const handleButtonClick = (color: string) => {
+const ColorSelector = () => {
+  const [selectedColor, setSelectedColor] = useState<ColorType>("primary");
+
+  const handleButtonClick = (color: ColorType) => {
     setSelectedColor(color);
   };
 
-  const buttonColors = ["primary", "secondary", "warning"];
-  const colorName = (color: string) =>
+  const colorName = (color: ColorType) =>
     color === "primary"
       ? "Blue"
       : color === "secondary"
@@ -18,6 +19,8 @@ const ColorSelector = () => {
       : color === "warning"
       ? "Yellow"
       : "";
+
+  const buttonColors: ColorType[] = ["primary", "secondary", "warning"];
 
   useEffect(() => {
     console.log(selectedColor);
@@ -35,9 +38,15 @@ const ColorSelector = () => {
           <button
             key={color}
             onClick={() => handleButtonClick(color)}
-            className={`w-8 h-8 rounded-full bg-${color} ring-${color} ${
+            className={`btn btn-circle btn-sm ${
+              color === "primary"
+                ? "bg-primary ring-primary"
+                : color === "secondary"
+                ? "bg-secondary ring-secondary"
+                : "bg-warning ring-warning"
+            } ${
               selectedColor === color
-                ? `ring-1 ring-offset-4 ring-offset-[#161b22]`
+                ? "ring-1 ring-offset-2 ring-offset-[#161b22]"
                 : ""
             }`}
             aria-label={`Button ${color}`}
