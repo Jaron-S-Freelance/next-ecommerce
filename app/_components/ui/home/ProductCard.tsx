@@ -63,7 +63,7 @@ const ProductCard = ({
   };
 
   const handleNavigateToProduct = () => {
-    router.push(`/product/${id}`);
+    router.push(`/products/${id}`);
   };
 
   const handleAddCartClick = (event: React.MouseEvent<HTMLButtonElement>) => {

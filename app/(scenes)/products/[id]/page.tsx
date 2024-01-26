@@ -1,7 +1,7 @@
-import Layout from "@/app/_components/shared/Layout";
 import Head from "next/head";
 
-const productDetails = () => {
+const productDetails = (params: { id: string }) => {
+  const productId = params.id;
   return (
     <>
       <Head>
@@ -9,9 +9,8 @@ const productDetails = () => {
         <meta name="description" content={""} />
       </Head>
 
-        <h2>Product Page</h2>
-        <span>Nothing here yet...</span>
-
+      <h2>Product Page</h2>
+      <span>Nothing here yet...</span>
     </>
   );
 };
