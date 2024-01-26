@@ -15,6 +15,12 @@ const config: Config = {
       },
     },
   },
+  options: {
+    safelist: [
+      /^bg-/, // Safelist all classes starting with 'bg-'
+      /^ring-/, // Safelist all classes starting with 'ring-'
+    ],
+  },
   plugins: [require("daisyui")],
 };
 export default config;
