@@ -38,7 +38,7 @@ const ColorSelector = () => {
           <button
             key={color}
             onClick={() => handleButtonClick(color)}
-            className={`btn btn-circle btn-sm glass ${
+            className={`safe btn btn-circle btn-sm glass ${
               color === "primary"
                 ? "bg-primary ring-primary"
                 : color === "secondary"
