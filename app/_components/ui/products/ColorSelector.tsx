@@ -45,9 +45,8 @@ const ColorSelector = () => {
                 ? "bg-secondary ring-secondary"
                 : "bg-warning ring-warning"
             } ${
-              selectedColor === color
-                ? "ring-1 ring-offset-2 ring-offset-[#161b22]"
-                : ""
+              "ring-1 ring-offset-2 ring-offset-[#161b22]"
+           
             }`}
             aria-label={`Button ${color}`}
           />
