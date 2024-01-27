@@ -35,9 +35,9 @@ const ColorSelector = () => {
           <button
             key={color}
             onClick={() => handleButtonClick(color)}
-            className={`safe btn btn-circle btn-sm glass ${
+            className={`safe btn btn-circle btn-sm glass ring-1 ${
               color === selectedColor
-                ? "ring-1 ring-offset-2 ring-offset-[#161b22]"
+                ? "ring-offset-2 ring-offset-[#161b22]"
                 : ""
             } ${colorVariants[color]}`}
             aria-label={`Button ${color}`}
