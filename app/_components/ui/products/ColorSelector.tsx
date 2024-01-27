@@ -13,10 +13,6 @@ const ColorSelector = () => {
 
   const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
 
-  useEffect(() => {
-    console.log(selectedColor);
-  }, [selectedColor]);
-
   const colorVariants: { blue: string; pink: string; yellow: string } = {
     blue: "bg-primary ring-primary",
     pink: "bg-secondary ring-secondary",
