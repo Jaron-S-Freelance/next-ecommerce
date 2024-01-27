@@ -2,40 +2,32 @@
 
 import React, { useEffect, useState } from "react";
 
-type ColorType = "primary" | "secondary" | "warning";
+type ColorType = "blue" | "pink" | "yellow";
 
 const ColorSelector = () => {
-  const [selectedColor, setSelectedColor] = useState<ColorType>("primary");
+  const [selectedColor, setSelectedColor] = useState<ColorType>("blue");
 
   const handleButtonClick = (color: ColorType) => {
     setSelectedColor(color);
   };
 
-  const colorName = (color: ColorType) =>
-    color === "primary"
-      ? "Blue"
-      : color === "secondary"
-      ? "Pink"
-      : color === "warning"
-      ? "Yellow"
-      : "";
-
-  const buttonColors: ColorType[] = ["primary", "secondary", "warning"];
+  const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
 
   useEffect(() => {
     console.log(selectedColor);
   }, [selectedColor]);
 
-  const selectionRingStyle = (color: string) =>
-    color === selectedColor
-      ? " ring-1 ring-offset-2 ring-offset-[#161b22]"
-      : "";
+  const colorVariants: { blue: string; pink: string; yellow: string } = {
+    blue: "bg-primary ring-primary",
+    pink: "bg-secondary ring-secondary",
+    yellow: "bg-warning ring-warning",
+  };
 
   return (
     <>
       <h3 className="flex py-2">
         <span className="font-semibold">Color:&nbsp;</span>
-        <span>{colorName(selectedColor)}</span>
+        <span className="capitalize">{selectedColor}</span>
       </h3>
 
       <div className="flex space-x-4 mb-2">
@@ -44,12 +36,12 @@ const ColorSelector = () => {
             key={color}
             onClick={() => handleButtonClick(color)}
             className={`safe btn btn-circle btn-sm glass ${
-              color === "primary"
-                ? "bg-primary ring-primary"
-                : color === "secondary"
-                ? "bg-secondary ring-secondary"
-                : "bg-warning ring-warning"
-            } ${selectionRingStyle(color)}`}
+              colorVariants[color]
+            } ${
+              color === selectedColor
+                ? "ring-1 ring-offset-2 ring-offset-[#161b22]"
+                : ""
+            }`}
             aria-label={`Button ${color}`}
           />
         ))}
