@@ -35,7 +35,10 @@ const ProductCard = ({
   }, [scaleControls, buttonTopControls, buttonBottomControls]);
 
   const handleMouseEnter = () => {
-    scaleControls.start({ scale: 1.1, filter: "blur(4px)" });
+    scaleControls.start({
+      scale: 1.1,
+      filter: disableActions ? undefined : "blur(4px)",
+    });
     buttonTopControls.start({
       x: 0,
       opacity: 1,
