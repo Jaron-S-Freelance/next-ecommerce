@@ -15,11 +15,6 @@ const config: Config = {
       },
     },
   },
-  options: {
-    safelist: {
-      greedy: ["/safe$/"],
-    },
-  },
   plugins: [require("daisyui")],
 };
 export default config;

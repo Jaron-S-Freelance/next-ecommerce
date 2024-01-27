@@ -26,6 +26,11 @@ const ColorSelector = () => {
     console.log(selectedColor);
   }, [selectedColor]);
 
+  const selectionRingStyle = (color: string) =>
+    color === selectedColor
+      ? " ring-1 ring-offset-2 ring-offset-[#161b22]"
+      : "";
+
   return (
     <>
       <h3 className="flex py-2">
@@ -44,11 +49,7 @@ const ColorSelector = () => {
                 : color === "secondary"
                 ? "bg-secondary ring-secondary"
                 : "bg-warning ring-warning"
-            } ${
-              selectedColor === color
-                ? "ring-1 ring-offset-2 ring-offset-[#161b22]"
-                : ""
-            }`}
+            } ${selectionRingStyle(color)}`}
             aria-label={`Button ${color}`}
           />
         ))}
