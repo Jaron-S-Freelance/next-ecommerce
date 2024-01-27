@@ -16,7 +16,7 @@ const config: Config = {
     },
   },
   options: {
-    safelist: ["ring-2", "ring-offset-2", "ring-offset-[#161b22]"],
+    safelist: ["ring-1", "ring-offset-2", "ring-offset-[#161b22]"],
   },
   plugins: [require("daisyui")],
 };
