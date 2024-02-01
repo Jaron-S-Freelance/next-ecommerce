@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer p-10 bg-base-300 text-base-content">
       <aside>
         <Image
-          src={"/fusiondesignlogo-simple.png"}
+          src={"/logo-grey.png"}
           alt={""}
           width={100}
           height={100}
