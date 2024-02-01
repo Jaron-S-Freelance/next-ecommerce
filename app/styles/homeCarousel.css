@@ -32,6 +32,7 @@
   height: 100%;
   /* Make image fill the slide */
   object-fit: cover;
+  object-position: center;
   /* Image will cover the area, getting cropped if necessary */
 }
 
