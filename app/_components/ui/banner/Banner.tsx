@@ -8,14 +8,20 @@ const Banner = () => {
     "FREE SHIPPING FOR ALL ORDERS OVER $100+",
   ];
 
+  // Extend the content by repeating it more times
+  const extendedMarqueeTexts = Array.from(
+    { length: 3 },
+    () => marqueeTexts
+  ).flat();
+
   const marqueeVariants = {
     animate: {
-      x: [0, -1000], // Adjust based on the length of your text
+      x: ["0%", "-33%"], // Adjust to move from 0% to -33% for three sets of content
       transition: {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 75,
+          duration: 30, // Adjust the duration to control the speed
           ease: "linear",
         },
       },
@@ -29,17 +35,13 @@ const Banner = () => {
         variants={marqueeVariants}
         animate="animate"
       >
-        {Array(5)
-          .fill(null)
-          .map(() => (
-            <>
-              {marqueeTexts.map((text, index) => (
-                <span key={`banner-${index}`}>
-                  {text} <span className="mx-6">-</span>
-                </span>
-              ))}
-            </>
-          ))}
+        {/* Render the extended marquee text for a continuous flow */}
+        {extendedMarqueeTexts.map((text, index) => (
+          <React.Fragment key={`marquee-text-${index}`}>
+            <span>{text}</span>
+            <span className="mx-6">-</span>
+          </React.Fragment>
+        ))}
       </motion.div>
       <div className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-base-200 via-base-200/0 z-20"></div>
       <div className="absolute top-0 bottom-0 right-0 w-1/2 bg-gradient-to-l from-base-200 via-base-200/0 z-20"></div>
