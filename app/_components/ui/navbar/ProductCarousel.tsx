@@ -4,11 +4,11 @@ import "react-multi-carousel/lib/styles.css";
 import Product from "@/types/models/product";
 import ProductCard from "../home/ProductCard";
 
-interface ProductListProps {
+interface ProductCarouselProps {
   products: Product[];
 }
 
-const ProductList = ({ products }: ProductListProps) => {
+const ProductCarousel = ({ products }: ProductCarouselProps) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 2500 },
@@ -24,7 +24,7 @@ const ProductList = ({ products }: ProductListProps) => {
     },
     small_laptop: {
       breakpoint: { max: 1500, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -61,4 +61,4 @@ const ProductList = ({ products }: ProductListProps) => {
   );
 };
 
-export default ProductList;
+export default ProductCarousel;

@@ -6,7 +6,6 @@ import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Head from "next/head";
 
 const productDetails = ({ params }: { params: { id: string } }) => {
-  console.log(params.id);
   const product = getProducts().find((product) => product.id === params.id);
   return (
     <>

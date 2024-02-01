@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { IoChevronDownOutline } from "react-icons/io5";
 import "@/app/styles/navbar.css";
-import ProductList from "./ProductList";
+import ProductList from "./ProductCarousel";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import CategoryMenu from "./CategoryMenu";
 
@@ -29,11 +29,11 @@ const Navbar = () => {
           href={"/"}
         >
           <Image
-            src={"/fusiondesignlogo-simple.png"}
+            src={"/logo-grey.png"}
             alt={""}
-            width={100}
-            height={100}
-            className="-mr-4 -mt-4 -mb-6"
+            width={75}
+            height={75}
+            className=""
           />
           Fusion Design
         </Link>
@@ -278,7 +278,7 @@ const NavbarLinks = ({
 const ShopDropdown = () => {
   return (
     <div
-      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-4"
+      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-24 lg:px-36"
       style={{ top: "2.3rem" }}
     >
       <CategoryMenu />
@@ -292,7 +292,7 @@ const PopularDropdown = () => {
   );
   return (
     <div
-      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-52"
+      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-6 px-24 lg:px-36"
       style={{ top: "2.3rem" }}
     >
       <h3 className="font-semibold text-xl mb-6">Our Most Popular Items</h3>
@@ -307,7 +307,7 @@ const NewArrivalsDropdown = () => {
   );
   return (
     <div
-      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-8 px-52"
+      className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-6 px-24 lg:px-36"
       style={{ top: "2.3rem" }}
     >
       <h3 className="font-semibold text-xl mb-6">New Arrivals</h3>

@@ -1,62 +1,13 @@
+import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
+import Category from "@/types/models/category";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
 
 const CategoryMenu = () => {
-  const categories = [
-    {
-      name: "Home Decor",
-      imageUrl: "/images/categories/decor.png",
-      url: "/category/home-decor",
-      subCategories: [
-        { name: "Contemporary", url: "/category/contemporary" },
-        { name: "Vintage", url: "/category/vintage" },
-        { name: "Minimalist", url: "/category/minimalist" },
-      ],
-    },
-    {
-      name: "Wall Art",
-      imageUrl: "/images/categories/wall-art.png",
-      url: "/category/wall-art",
-      subCategories: [
-        { name: "Paintings", url: "/category/paintings" },
-        { name: "Posters", url: "/category/posters" },
-        { name: "Wall Decals", url: "/category/wall-decals" },
-      ],
-    },
-    {
-      name: "Cushions & Throws",
-      imageUrl: "/images/categories/cushions-throws.png",
-      url: "/category/cushions-throws",
-      subCategories: [
-        { name: "Throw Pillows", url: "/category/throw-pillows" },
-        { name: "Blankets", url: "/category/blankets" },
-        { name: "Floor Cushions", url: "/category/floor-cushions" },
-      ],
-    },
-    {
-      name: "Planters",
-      imageUrl: "/images/categories/planters.png",
-      url: "/category/planters",
-      subCategories: [
-        { name: "Indoor Planters", url: "/category/indoor-planters" },
-        { name: "Outdoor Planters", url: "/category/outdoor-planters" },
-        { name: "Hanging Planters", url: "/category/hanging-planters" },
-      ],
-    },
-    {
-      name: "Tableware",
-      imageUrl: "/images/categories/tableware.png",
-      url: "/category/tableware",
-      subCategories: [
-        { name: "Dinnerware", url: "/category/dinnerware" },
-        { name: "Glassware", url: "/category/glassware" },
-        { name: "Cutlery", url: "/category/cutlery" },
-      ],
-    },
-  ];
+  const categories = getCategories();
 
   return (
     <div className="">
@@ -67,12 +18,7 @@ const CategoryMenu = () => {
               key={`categoryMenu-${category.name}`}
               className="flex flex-col"
             >
-              <CategoryImage
-                categoryName={category.name}
-                imageUrl={category.imageUrl}
-                width={192}
-                height={192}
-              />
+              <CategoryImage category={category} width={192} height={192} />
               <div className="p-2 py-4">
                 <Link
                   href={category.url}
@@ -83,7 +29,7 @@ const CategoryMenu = () => {
                 <ul className="my-2 text-slate-400">
                   {category.subCategories.map((subCategory) => (
                     <li key={`categoryMenu-${subCategory.name}`}>
-                      <Link href={subCategory.url}>{subCategory.name}</Link>
+                      <Link href={category.url}>{subCategory.name}</Link>
                     </li>
                   ))}
                 </ul>
@@ -97,8 +43,7 @@ const CategoryMenu = () => {
 };
 
 interface CategoryCardProps {
-  imageUrl: string;
-  categoryName: string;
+  category: Category;
   width: number;
   height: number;
   className?: string;
@@ -106,19 +51,22 @@ interface CategoryCardProps {
 {
 }
 const CategoryImage = ({
-  imageUrl,
-  categoryName,
+  category,
   width,
   height,
   className,
 }: CategoryCardProps) => {
+  const router = useRouter();
+  const { name, imageUrl, url } = category;
   const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
       style={{ width: `${width}px`, height: `${height}px` }}
       className="overflow-hidden flex justify-center items-end relative rounded-xl hover:cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => router.push(url)}
     >
       <motion.div
         animate={{
@@ -132,12 +80,7 @@ const CategoryImage = ({
         }}
         className="w-full h-full"
       >
-        <Image
-          src={imageUrl}
-          alt={categoryName}
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={imageUrl} alt={name} layout="fill" objectFit="cover" />
       </motion.div>
     </div>
   );

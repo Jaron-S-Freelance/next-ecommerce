@@ -3,8 +3,9 @@ import Rating from "./Rating";
 import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa";
 import { IoBagCheckOutline } from "react-icons/io5";
-import ColorSelector from "./ColorSelector";
+import ColorSelector, { ColorType } from "./ColorSelector";
 import QuantitySelector from "./QuantitySelector";
+import { useState } from "react";
 
 interface ProductDetailsProps {
   product: Product;
@@ -61,9 +62,19 @@ const Description = ({
 };
 
 const AddToCart = () => {
+  const [color, setColor] = useState<ColorType | undefined>("blue");
+  const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
   return (
     <div className="flex flex-col items-justify-center">
-      <ColorSelector />
+      <h3 className="flex py-2">
+        <span className="font-semibold">Color:&nbsp;</span>
+        <span className="capitalize">{color}</span>
+      </h3>
+      <ColorSelector
+        colors={buttonColors}
+        selectedColor={color}
+        setSelectedColor={setColor}
+      />
       <div>
         <div className="flex items-end gap-5">
           <QuantitySelector />

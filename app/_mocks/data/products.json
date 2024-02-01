@@ -118,7 +118,7 @@
     "imageUrl": "/images/products/botanical-vibrance.png",
     "rating": 4,
     "category": "wall_art",
-    "tags": ["trending", "popular"]
+    "tags": ["popular"]
   },
   {
     "id": "HD001",
@@ -128,7 +128,7 @@
     "imageUrl": "/images/products/geosleek-vase.png",
     "rating": 4,
     "category": "home_decor",
-    "tags": ["new_arrival", "trending"]
+    "tags": [ "trending"]
   },
   {
     "id": "HD002",

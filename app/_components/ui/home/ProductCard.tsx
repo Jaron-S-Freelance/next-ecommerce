@@ -109,7 +109,7 @@ const ProductCard = ({
               initial={{ opacity: 0 }}
             >
               <button
-                className="btn rounded-3xl mx-8"
+                className="btn rounded-3xl"
                 onClick={handleQuickViewClick}
               >
                 <FaEye />
@@ -122,10 +122,7 @@ const ProductCard = ({
               animate={buttonBottomControls}
               initial={{ opacity: 0 }}
             >
-              <button
-                className="btn rounded-3xl mx-8"
-                onClick={handleAddCartClick}
-              >
+              <button className="btn rounded-3xl" onClick={handleAddCartClick}>
                 <FaCartPlus />
                 Add to Cart
               </button>

@@ -1,5 +1,7 @@
+import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -8,16 +10,7 @@ interface CategoryCardProps {
 }
 
 const CategoryCards = () => {
-  const categories = [
-    { name: "Home Decor", imageUrl: "/images/categories/decor.png" },
-    { name: "Wall Art", imageUrl: "/images/categories/wall-art.png" },
-    {
-      name: "Cushions & Throws",
-      imageUrl: "/images/categories/cushions-throws.png",
-    },
-    { name: "Planters", imageUrl: "/images/categories/planters.png" },
-    { name: "Tableware", imageUrl: "/images/categories/tableware.png" },
-  ];
+  const categories = getCategories();
   return (
     <div className="my-16">
       <h3 className="font-semibold text-md text-center underline underline-offset-2">
@@ -36,6 +29,7 @@ const CategoryCards = () => {
               key={index}
               categoryName={category.name}
               imageUrl={category.imageUrl}
+              url={category.url}
               width={width}
               height={height}
             />
@@ -49,6 +43,7 @@ const CategoryCards = () => {
 interface CategoryCardProps {
   imageUrl: string;
   categoryName: string;
+  url: string;
   width: number;
   height: number;
   className?: string;
@@ -58,10 +53,12 @@ interface CategoryCardProps {
 const CategoryCard = ({
   imageUrl,
   categoryName,
+  url,
   width,
   height,
   className,
 }: CategoryCardProps) => {
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   return (
     <div
@@ -69,6 +66,7 @@ const CategoryCard = ({
       className="overflow-hidden flex justify-center items-end relative rounded-xl hover:cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => router.push(url)}
     >
       <motion.div
         animate={{

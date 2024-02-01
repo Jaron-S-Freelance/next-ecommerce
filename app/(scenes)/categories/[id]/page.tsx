@@ -1,8 +1,17 @@
+"use client";
+
 import Layout from "@/app/_components/shared/Layout";
+import ProductCategory from "@/app/_components/ui/category/ProductCategory";
+import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import Head from "next/head";
 import React from "react";
 
-const category = () => {
+const category = ({ params }: { params: { id: string } }) => {
+  const categoryId = params.id;
+  const category = getCategories().find(
+    (category) => category.id === categoryId
+  );
+  console.log(category);
   return (
     <>
       <Head>
@@ -10,8 +19,7 @@ const category = () => {
         <meta name="description" content={""} />
       </Head>
 
-      <h2>Category Page</h2>
-      <span>Nothing here yet...</span>
+      <Layout>{category && <ProductCategory category={category} />}</Layout>
     </>
   );
 };

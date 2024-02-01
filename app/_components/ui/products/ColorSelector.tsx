@@ -1,33 +1,40 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
-type ColorType = "blue" | "pink" | "yellow";
+export type ColorType = "blue" | "pink" | "yellow" | "green";
 
-const ColorSelector = () => {
-  const [selectedColor, setSelectedColor] = useState<ColorType>("blue");
+interface ColorSelectorProps {
+  colors: ColorType[];
+  selectedColor: ColorType | undefined;
+  setSelectedColor: Dispatch<SetStateAction<ColorType | undefined>>;
+}
 
+const ColorSelector = ({
+  colors,
+  selectedColor,
+  setSelectedColor,
+}: ColorSelectorProps) => {
   const handleButtonClick = (color: ColorType) => {
     setSelectedColor(color);
   };
 
-  const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
-
-  const colorVariants: { blue: string; pink: string; yellow: string } = {
-    blue: "bg-primary ring-primary",
-    pink: "bg-secondary ring-secondary",
-    yellow: "bg-warning ring-warning",
+  const colorVariants: {
+    blue: string;
+    pink: string;
+    yellow: string;
+    green: string;
+  } = {
+    blue: "bg-primary ring-primary hover:bg-blue-600",
+    pink: "bg-secondary ring-secondary hover:bg-pink-600",
+    yellow: "bg-warning ring-warning hover:bg-yellow-600",
+    green: "bg-accent ring-accent hover:bg-teal-600",
   };
 
   return (
     <>
-      <h3 className="flex py-2">
-        <span className="font-semibold">Color:&nbsp;</span>
-        <span className="capitalize">{selectedColor}</span>
-      </h3>
-
       <div className="flex space-x-4 mb-2">
-        {buttonColors.map((color) => (
+        {colors.map((color) => (
           <button
             key={color}
             onClick={() => handleButtonClick(color)}

@@ -8,9 +8,13 @@ import Product from "@/types/models/product";
 const FeaturedProducts = () => {
   const [selectedFilter, setSelectedFilter] = useState("featured");
   const products: Product[] = getProducts();
+
   const filteredProducts = products.filter((product) =>
     product.tags?.includes(selectedFilter)
   );
+
+  console.log("filtered: ", selectedFilter, filteredProducts);
+
   const selectedTagTitle =
     selectedFilter === "featured"
       ? "Featured Products"
@@ -33,8 +37,7 @@ const FeaturedProducts = () => {
       <h2 className="text-center font-bold text-5xl m-2 mb-16">
         {selectedTagTitle}
       </h2>
-      <ProductGrid products={filteredProducts} />
-      <button className="btn btn-outline rounded-3xl m-4">Load More</button>
+      <ProductGrid products={filteredProducts} size="lg" />
     </div>
   );
 };

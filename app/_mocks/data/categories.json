@@ -1,0 +1,59 @@
+{
+  "categories": [
+    {
+      "name": "Home Decor",
+      "id": "home_decor",
+      "imageUrl": "/images/categories/decor.png",
+      "url": "/categories/home_decor",
+      "subCategories": [
+        { "name": "Contemporary", "url": "/categories/contemporary" },
+        { "name": "Vintage", "url": "/categories/vintage" },
+        { "name": "Minimalist", "url": "/categories/minimalist" }
+      ]
+    },
+    {
+      "name": "Wall Art",
+      "id": "wall_art",
+      "imageUrl": "/images/categories/wall-art.png",
+      "url": "/categories/wall_art",
+      "subCategories": [
+        { "name": "Paintings", "url": "/categories/paintings" },
+        { "name": "Posters", "url": "/categories/posters" },
+        { "name": "Wall Decals", "url": "/categories/wall_decals" }
+      ]
+    },
+    {
+      "name": "Cushions & Throws",
+      "id": "cushions_throws",
+      "imageUrl": "/images/categories/cushions-throws.png",
+      "url": "/categories/cushions_throws",
+      "subCategories": [
+        { "name": "Throw Pillows", "url": "/categories/throw_pillows" },
+        { "name": "Blankets", "url": "/categories/blankets" },
+        { "name": "Floor Cushions", "url": "/categories/floor_cushions" }
+      ]
+    },
+    {
+      "name": "Planters",
+      "id": "planters",
+      "imageUrl": "/images/categories/planters.png",
+      "url": "/categories/planters",
+      "subCategories": [
+        { "name": "Indoor Planters", "url": "/categories/indoor_planters" },
+        { "name": "Outdoor Planters", "url": "/categories/outdoor_planters" },
+        { "name": "Hanging Planters", "url": "/categories/hanging_planters" }
+      ]
+    },
+    {
+      "name": "Tableware",
+      "id": "tableware",
+      "imageUrl": "/images/categories/tableware.png",
+      "url": "/categories/tableware",
+      "subCategories": [
+        { "name": "Dinnerware", "url": "/categories/dinnerware" },
+        { "name": "Glassware", "url": "/categories/glassware" },
+        { "name": "Cutlery", "url": "/categories/cutlery" }
+      ]
+    }
+  ]
+}
