@@ -128,7 +128,7 @@
     "imageUrl": "/images/products/geosleek-vase.png",
     "rating": 4,
     "category": "home_decor",
-    "tags": [ "trending"]
+    "tags": ["trending"]
   },
   {
     "id": "HD002",
@@ -248,7 +248,7 @@
     "imageUrl": "/images/products/duotrend-cushion-set.png",
     "rating": 5,
     "category": "cushions_throws",
-    "tags": ["new_arrival", "trending"]
+    "tags": ["trending"]
   },
   {
     "id": "HD014",
@@ -328,6 +328,6 @@
     "imageUrl": "/images/products/sleekspice-shaker-set.png",
     "rating": 5,
     "category": "tableware",
-    "tags": ["new_arrival", "featured"]
+    "tags": ["featured"]
   }
 ]

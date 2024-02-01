@@ -30,10 +30,10 @@ const ProductCategory = ({ category }: { category: Category }) => {
       </div>
       <div className="w-px bg-gray-700 hidden sm:block mx-6" />
       <div className="flex flex-col flex-2">
-        {/* <div className="flex flex-between">
+        <div className="flex flex-between">
           <ActiveFilters />
           <Sort />
-        </div> */}
+        </div>
 
         <ProductGrid products={filteredProducts} size="md" />
       </div>
@@ -49,7 +49,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ filters, setFilters, category, tags }: SidebarProps) => {
-  const [color, setColor] = useState<ColorType | undefined>();
+  const [color, setColor] = useState<ColorType | null>(null);
   const colors: ColorType[] = ["blue", "pink", "yellow", "green"];
 
   return (
@@ -73,6 +73,7 @@ const Sidebar = ({ filters, setFilters, category, tags }: SidebarProps) => {
         colors={colors}
         selectedColor={color}
         setSelectedColor={setColor}
+        isClearable
       />
       <span className="block h-px bg-gray-700 my-4" />
       {/* Price */}

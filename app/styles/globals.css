@@ -22,3 +22,10 @@ body {
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+
+/* DaisyUI drawer fix */
+.drawer-content,
+.drawer-side {
+  overflow-x: hidden;
+  /* Hide horizontal overflow */
+}

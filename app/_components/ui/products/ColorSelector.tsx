@@ -6,17 +6,20 @@ export type ColorType = "blue" | "pink" | "yellow" | "green";
 
 interface ColorSelectorProps {
   colors: ColorType[];
-  selectedColor: ColorType | undefined;
-  setSelectedColor: Dispatch<SetStateAction<ColorType | undefined>>;
+  selectedColor: ColorType | null;
+  setSelectedColor: Dispatch<SetStateAction<ColorType | null>>;
+  isClearable?: boolean;
 }
 
 const ColorSelector = ({
   colors,
   selectedColor,
   setSelectedColor,
+  isClearable,
 }: ColorSelectorProps) => {
   const handleButtonClick = (color: ColorType) => {
-    setSelectedColor(color);
+    if (isClearable && color === selectedColor) setSelectedColor(null);
+    else setSelectedColor(color);
   };
 
   const colorVariants: {

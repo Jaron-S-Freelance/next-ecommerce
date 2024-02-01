@@ -62,7 +62,7 @@ const Description = ({
 };
 
 const AddToCart = () => {
-  const [color, setColor] = useState<ColorType | undefined>("blue");
+  const [color, setColor] = useState<ColorType | null>("blue");
   const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
   return (
     <div className="flex flex-col items-justify-center">
