@@ -6,7 +6,7 @@ const Footer = () => {
       <aside>
         <Image
           src={"/logo-grey.png"}
-          alt={""}
+          alt={"logo"}
           width={100}
           height={100}
           className="-my-8 -mx-1"
