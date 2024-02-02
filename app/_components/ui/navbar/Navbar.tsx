@@ -29,13 +29,7 @@ const Navbar = () => {
           className="text-2xl mx-8 flex items-center font-semibold"
           href={"/"}
         >
-          <Image
-            src={"/logo-grey.png"}
-            alt={""}
-            width={75}
-            height={75}
-            className=""
-          />
+          <Image src={"/logo-grey.png"} alt={"logo"} width={75} height={75} />
           Fusion Design
         </Link>
       </div>
@@ -49,7 +43,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <SearchButton />
-        <Cart />
+        <CartButton />
         <Profile />
       </div>
       {/* Dropdowns */}
@@ -103,30 +97,21 @@ const SearchButton = () => {
   );
 };
 
-// const Cart = () => {
-//   return (
-//     <div className="dropdown dropdown-end">
-//       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-//         <div className="indicator">
-//           <CiShoppingCart size="24px" />
-//           <span className="badge badge-sm indicator-item">8</span>
-//         </div>
-//       </div>
-//       <div
-//         tabIndex={0}
-//         className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
-//       >
-//         <div className="card-body">
-//           <span className="font-bold text-lg">8 Items</span>
-//           <span className="text-info">Subtotal: $999</span>
-//           <div className="card-actions">
-//             <button className="btn btn-primary btn-block">View cart</button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+const CartButton = () => {
+  return (
+    <label
+      htmlFor="my-drawer-4"
+      className="btn btn-ghost btn-circle drawer-button"
+      tabIndex={0}
+      role="button"
+    >
+      <div className="indicator">
+        <CiShoppingCart size="24px" />
+        <span className="badge badge-sm indicator-item">8</span>
+      </div>
+    </label>
+  );
+};
 
 const Profile = () => {
   return (

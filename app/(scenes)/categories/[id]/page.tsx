@@ -1,6 +1,6 @@
 "use client";
 
-import Layout from "@/app/_components/shared/Layout";
+import Layout from "@/app/_components/layout/Layout";
 import ProductCategory from "@/app/_components/ui/category/ProductCategory";
 import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import Head from "next/head";

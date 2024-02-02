@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { FaCartPlus, FaEye } from "react-icons/fa";
-import Rating from "../products/Rating";
+import Rating from "../ui/products/Rating";
 
 interface ProductCardProps {
   product: Product;

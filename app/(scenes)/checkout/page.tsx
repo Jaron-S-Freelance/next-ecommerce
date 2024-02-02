@@ -1,4 +1,4 @@
-import Layout from "@/app/_components/shared/Layout";
+import Layout from "@/app/_components/layout/Layout";
 import Head from "next/head";
 
 const checkout = () => {

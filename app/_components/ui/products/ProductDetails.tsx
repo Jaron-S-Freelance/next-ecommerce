@@ -3,8 +3,8 @@ import Rating from "./Rating";
 import Image from "next/image";
 import { FaCartPlus } from "react-icons/fa";
 import { IoBagCheckOutline } from "react-icons/io5";
-import ColorSelector, { ColorType } from "./ColorSelector";
-import QuantitySelector from "./QuantitySelector";
+import ColorSelector, { ColorType } from "../../global/ColorSelector";
+import QuantitySelector from "../../global/QuantitySelector";
 import { useState } from "react";
 
 interface ProductDetailsProps {

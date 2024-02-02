@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import Cart from "../ui/navbar/Cart/Cart";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -11,6 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div>
       <Header />
       <main>{children}</main>
+      <Cart />
       <Footer />
     </div>
   );

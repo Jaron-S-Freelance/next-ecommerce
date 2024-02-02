@@ -3,7 +3,13 @@
 import React, { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
-const QuantitySelector = () => {
+type Size = "xs" | "sm" | "md" | "lg";
+
+interface QuantitySelectorProps {
+  size?: Size;
+}
+
+const QuantitySelector = ({ size }: QuantitySelectorProps) => {
   const [quantity, setQuantity] = useState<number>(0);
 
   const handleIncrement = () => {
@@ -19,10 +25,21 @@ const QuantitySelector = () => {
     setQuantity(isNaN(value) ? 0 : value);
   };
 
+  const getSizeClass = (size: Size | undefined) => {
+    const sizeClasses = {
+      xs: "input-xs",
+      sm: "input-sm",
+      md: "input-md",
+      lg: "input-lg",
+    };
+    if (size) return sizeClasses[size];
+    else return "";
+  };
+
   return (
     <div>
-      <span className="py-2">Quantity</span>
-      <div className="input flex items-center mt-2">
+      {size !== "sm" && <span className="py-2 mb-2">Quantity</span>}
+      <div className={`input flex items-center ${getSizeClass(size)}`}>
         <button onClick={handleDecrement}>
           <BiMinus />
         </button>

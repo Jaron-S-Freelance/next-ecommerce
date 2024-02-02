@@ -1,9 +1,9 @@
 import Category from "@/types/models/category";
 import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
-import ProductGrid from "../home/ProductGrid";
+import ProductGrid from "../../global/ProductGrid";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Product from "@/types/models/product";
-import ColorSelector, { ColorType } from "../products/ColorSelector";
+import ColorSelector, { ColorType } from "../../global/ColorSelector";
 import { getTags } from "@/app/_mocks/handlers/tagsHandler";
 
 const ProductCategory = ({ category }: { category: Category }) => {

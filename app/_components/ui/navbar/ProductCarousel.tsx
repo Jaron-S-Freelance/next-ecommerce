@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Product from "@/types/models/product";
-import ProductCard from "../home/ProductCard";
+import ProductCard from "../../global/ProductCard";
 
 interface ProductCarouselProps {
   products: Product[];

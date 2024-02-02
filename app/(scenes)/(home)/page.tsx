@@ -1,9 +1,9 @@
 "use client";
 
-import Layout from "@/app/_components/shared/Layout";
-import Carousel from "@/app/_components/ui/home/Carousel/Carousel";
+import Layout from "@/app/_components/layout/Layout";
+import Carousel from "@/app/_components/ui/home/Carousel";
 import CategoryCards from "@/app/_components/ui/home/CategoryCards";
-import FeaturedProducts from "@/app/_components/ui/home/FeaturedProducts";
+import HomepageProducts from "@/app/_components/ui/home/HomepageProducts";
 import carouselData from "@/app/_mocks/data/carousel";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Product from "@/types/models/product";
@@ -28,7 +28,7 @@ export default function Home() {
       <Layout>
         <Carousel images={images} />
         <CategoryCards />
-        <FeaturedProducts />
+        <HomepageProducts />
       </Layout>
     </>
   );

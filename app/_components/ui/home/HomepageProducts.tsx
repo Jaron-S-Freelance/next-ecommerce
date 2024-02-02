@@ -1,11 +1,11 @@
 "use client";
 
 import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
-import ProductGrid from "./ProductGrid";
+import ProductGrid from "../../global/ProductGrid";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Product from "@/types/models/product";
 
-const FeaturedProducts = () => {
+const HomepageProducts = () => {
   const [selectedFilter, setSelectedFilter] = useState("featured");
   const products: Product[] = getProducts();
 
@@ -83,4 +83,4 @@ const FilterSelector = ({
   );
 };
 
-export default FeaturedProducts;
+export default HomepageProducts;
