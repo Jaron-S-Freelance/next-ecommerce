@@ -95,8 +95,8 @@ const ProductCard = ({
           <Image
             src={imageUrl}
             alt={category}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
           />
         </motion.div>
         {/* Action Buttons */}

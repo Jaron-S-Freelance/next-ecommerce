@@ -83,8 +83,8 @@ const CategoryCard = ({
         <Image
           src={imageUrl}
           alt={categoryName}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
         />
       </motion.div>
       <button className="btn absolute m-4">

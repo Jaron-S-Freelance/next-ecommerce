@@ -71,7 +71,7 @@ const AddToCart = () => {
         <span className="capitalize">{color}</span>
       </h3>
       <ColorSelector
-        colors={buttonColors}
+        options={buttonColors}
         selectedColor={color}
         setSelectedColor={setColor}
       />

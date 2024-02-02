@@ -1,7 +1,7 @@
 "use client";
 
 import Layout from "@/app/_components/layout/Layout";
-import ProductCategory from "@/app/_components/ui/category/ProductCategory";
+import ShopByCategory from "@/app/_components/ui/shop/ShopByCategory";
 import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import Head from "next/head";
 import React from "react";
@@ -19,7 +19,7 @@ const category = ({ params }: { params: { id: string } }) => {
         <meta name="description" content={""} />
       </Head>
 
-      <Layout>{category && <ProductCategory category={category} />}</Layout>
+      <Layout>{category && <ShopByCategory category={category} />}</Layout>
     </>
   );
 };

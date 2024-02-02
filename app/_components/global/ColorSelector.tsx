@@ -5,21 +5,40 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 export type ColorType = "blue" | "pink" | "yellow" | "green";
 
 interface ColorSelectorProps {
-  colors: ColorType[];
-  selectedColor: ColorType | null;
-  setSelectedColor: Dispatch<SetStateAction<ColorType | null>>;
+  options: ColorType[];
+  selectedColor?: ColorType | null;
+  setSelectedColor?: Dispatch<SetStateAction<ColorType | null>>;
+  selectedColors?: ColorType[];
+  setSelectedColors?: Dispatch<SetStateAction<ColorType[]>>;
   isClearable?: boolean;
 }
 
 const ColorSelector = ({
-  colors,
+  options,
   selectedColor,
   setSelectedColor,
+  selectedColors,
+  setSelectedColors,
   isClearable,
 }: ColorSelectorProps) => {
+  const isMultiple = setSelectedColors && selectedColors;
+  const isSingle = setSelectedColor && selectedColor;
+
   const handleButtonClick = (color: ColorType) => {
-    if (isClearable && color === selectedColor) setSelectedColor(null);
-    else setSelectedColor(color);
+    // Single selectable
+    if (isSingle) {
+      if (isClearable && color === selectedColor)
+        setSelectedColor(null);
+      else setSelectedColor(color);
+    }
+    // Multiple selectable
+    else if (isMultiple) {
+      if (isClearable && selectedColors.includes(color)) {
+        setSelectedColors(selectedColors.filter((c) => c !== color));
+      } else if (!selectedColors.includes(color)) {
+        setSelectedColors(selectedColors.concat(color));
+      }
+    }
   };
 
   const colorVariants: {
@@ -37,12 +56,12 @@ const ColorSelector = ({
   return (
     <>
       <div className="flex space-x-4 mb-2">
-        {colors.map((color) => (
+        {options.map((color) => (
           <button
             key={color}
             onClick={() => handleButtonClick(color)}
             className={`safe btn btn-circle btn-sm glass ring-1 ${
-              color === selectedColor
+              color === selectedColor || selectedColors?.includes(color)
                 ? "ring-offset-2 ring-offset-[#161b22]"
                 : ""
             } ${colorVariants[color]}`}
