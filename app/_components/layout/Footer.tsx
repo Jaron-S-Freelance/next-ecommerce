@@ -9,7 +9,7 @@ const Footer = () => {
           alt={"logo"}
           width={100}
           height={100}
-          className="-my-8 -mx-1"
+          className=""
         />
         <p>
           Fusion Design
