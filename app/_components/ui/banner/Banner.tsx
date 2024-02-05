@@ -43,8 +43,20 @@ const Banner = () => {
           </React.Fragment>
         ))}
       </motion.div>
-      <div className="absolute top-0 bottom-0 left-0 w-1/2 bg-gradient-to-r from-base-200 via-base-200/0 z-20"></div>
-      <div className="absolute top-0 bottom-0 right-0 w-1/2 bg-gradient-to-l from-base-200 via-base-200/0 z-20"></div>
+      <div
+        className="absolute top-0 bottom-0 left-0 w-1/3 bg-gradient-to-r from-base-200 via-base-200/0 z-20"
+        style={{
+          background:
+            "linear-gradient(to right, #191e24 0%, rgba(236, 239, 241, 0) 100%)",
+        }}
+      ></div>
+      <div
+        className="absolute top-0 bottom-0 right-0 w-1/3 bg-gradient-to-l from-base-200 via-base-200/0 z-20"
+        style={{
+          background:
+            "linear-gradient(to left, #191e24 0%, rgba(236, 239, 241, 0) 100%)",
+        }}
+      ></div>
     </div>
   );
 };
