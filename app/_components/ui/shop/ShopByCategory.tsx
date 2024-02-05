@@ -13,7 +13,7 @@ interface ShopByCategoryProps {
 }
 
 const ShopByCategory = ({ category }: ShopByCategoryProps) => {
-  const products = getProducts();
+  const products: Product[] = getProducts();
   const [filter, setFilter] = useState<Filter>({
     subCategories: [],
     colors: [],
@@ -29,8 +29,67 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
     "Price, high to low",
   ];
 
-  const applyFilters = (products: Product[]) => {
-    return products.filter((product) => product.category === category.id);
+  const applyFilters = (products: Product[]): Product[] => {
+    let filteredProducts = products;
+
+    // Filter by subCategories
+    if (filter.subCategories.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.subCategories?.some((subCategory) =>
+          filter.subCategories.includes(subCategory)
+        )
+      );
+    }
+
+    // Filter by colors
+    if (filter.colors.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.colors.some((color) => filter.colors.includes(color))
+      );
+    }
+
+    // Filter by priceRange
+    if (filter.priceRange.length === 2) {
+      const [minPrice, maxPrice] = filter.priceRange;
+      filteredProducts = filteredProducts.filter(
+        (product) => product.price >= minPrice && product.price <= maxPrice
+      );
+    }
+
+    // Filter by availability
+    if (filter.availability.length > 0) {
+      const isAvailable = filter.availability.includes("available");
+      filteredProducts = filteredProducts.filter(
+        (product) => product.availability === isAvailable
+      );
+    }
+
+    // Filter by tags
+    if (filter.tags.length > 0) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.tags.some((tag) => filter.tags.includes(tag))
+      );
+    }
+
+    // Sorting
+    switch (sort) {
+      case "Most popular":
+        // Assuming 'rating' as a proxy for popularity
+        filteredProducts.sort((a, b) => b.rating - a.rating);
+        break;
+      case "Price, low to high":
+        filteredProducts.sort((a, b) => a.price - b.price);
+        break;
+      case "Price, high to low":
+        filteredProducts.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        // 'Featured' or any other default sorting logic
+        // Consider keeping the original order or applying another default sorting criterion
+        break;
+    }
+
+    return filteredProducts;
   };
 
   const filteredProducts = useMemo(() => {
@@ -52,7 +111,7 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
         />
       </div>
       <div className="w-px bg-gray-700 hidden sm:block mx-6" />
-      <div className="flex flex-col flex-2">
+      <div className="flex flex-col flex-2 w-full">
         <div className="flex justify-between py-6">
           <ActiveFilters filter={filter} setFilter={setFilter} />
           <Sort

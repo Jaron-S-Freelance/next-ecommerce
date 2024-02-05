@@ -17,8 +17,21 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   const sliderRef = useRef<HTMLDivElement>(null); // Ref for the slider's container for size calculations
 
   useEffect(() => {
-    onChange(values); // Notify parent component whenever values change
-  }, [values, onChange]);
+    if (!arraysEqual(values, initialValues)) {
+      onChange(values);
+    }
+  }, [values, onChange, initialValues]);
+
+  const arraysEqual = (a: number[], b: number[]) => {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length !== b.length) return false;
+
+    for (let i = 0; i < a.length; ++i) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+  };
 
   const handleDragStart = (
     index: number,
