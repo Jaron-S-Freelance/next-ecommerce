@@ -78,7 +78,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
                 <div
                   className="absolute h-2 bg-primary rounded-full"
                   style={{
-                    left: `${values[0]}%`,
+                    left: `${calculatePercentage(values[0])}%`,
                     width: `${
                       calculatePercentage(value) -
                       calculatePercentage(values[0])

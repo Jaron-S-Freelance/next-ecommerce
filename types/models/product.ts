@@ -1,3 +1,5 @@
+import { ColorType } from "@/app/_components/global/ColorSelector";
+
 export default interface Product {
   id: string;
   title: string;
@@ -6,5 +8,8 @@ export default interface Product {
   imageUrl: string;
   rating: number;
   category: string;
+  subCategories: string[];
+  colors: ColorType[];
+  availability: boolean;
   tags: string[];
 }

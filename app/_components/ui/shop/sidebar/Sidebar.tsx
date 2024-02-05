@@ -5,15 +5,15 @@ import ColorSelector, { ColorType } from "../../../global/ColorSelector";
 import Filter from "@/types/models/filter";
 import Category from "@/types/models/category";
 import Tags from "./Tags";
+import { getTags } from "@/app/_mocks/handlers/tagsHandler";
 
 interface SidebarProps {
   filter: Filter;
-  setFilter: Dispatch<SetStateAction<Filter>>;
+  setFilter: (filter: Filter) => void;
   category: Category;
-  tags: string[];
 }
 
-const Sidebar = ({ filter, setFilter, category, tags }: SidebarProps) => {
+const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   const [colors, setColors] = useState<ColorType[]>(filter.colors);
   const [subCategories, setSubCategories] = useState<string[]>(
     filter.subCategories
@@ -22,6 +22,7 @@ const Sidebar = ({ filter, setFilter, category, tags }: SidebarProps) => {
   const [availability, setAvailability] = useState<string[]>(
     filter.availability
   );
+  const [tags, setTags] = useState<string[]>(filter.tags);
   const colorOptions: ColorType[] = ["blue", "pink", "yellow", "green"];
 
   const handleSubCategoryChange = (name: string) => {
@@ -41,28 +42,69 @@ const Sidebar = ({ filter, setFilter, category, tags }: SidebarProps) => {
   };
 
   const handleTagChange = (selectedTags: string[]) => {
-    setSubCategories(selectedTags);
+    setTags(selectedTags);
   };
 
-  // Update filter whenever it changes
   useEffect(() => {
+    // Construct the new filter object
     const newFilter = {
       ...filter,
-      subCategories: subCategories,
-      colors: colors,
-      priceRange: priceRange,
-      availability: availability,
+      subCategories,
+      colors,
+      priceRange,
+      availability,
+      tags,
     };
+
     setFilter(newFilter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colors, subCategories, priceRange, availability]);
+  }, [colors, subCategories, priceRange, availability, tags]);
 
-  // Update local state on filter change
+  function deepEqual(object1: any, object2: any): boolean {
+    const keys1 = Object.keys(object1);
+    const keys2 = Object.keys(object2);
+
+    if (keys1.length !== keys2.length) {
+      return false;
+    }
+
+    for (const key of keys1) {
+      const val1 = object1[key];
+      const val2 = object2[key];
+      const areObjects = isObject(val1) && isObject(val2);
+      if (
+        (areObjects && !deepEqual(val1, val2)) ||
+        (!areObjects && val1 !== val2)
+      ) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function isObject(object: any) {
+    return object != null && typeof object === "object";
+  }
+
   useEffect(() => {
-    setColors(filter.colors);
-    setSubCategories(filter.subCategories);
-    setPriceRange(filter.priceRange);
-    setAvailability(filter.availability);
+    if (
+      !deepEqual(filter, {
+        ...filter,
+        subCategories,
+        colors,
+        priceRange,
+        availability,
+        tags,
+      })
+    ) {
+      setColors(filter.colors);
+      setSubCategories(filter.subCategories);
+      setPriceRange(filter.priceRange);
+      setAvailability(filter.availability);
+      setTags(filter.tags);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   return (
@@ -108,7 +150,7 @@ const Sidebar = ({ filter, setFilter, category, tags }: SidebarProps) => {
       <span className="block h-px bg-gray-700 my-4" />
       {/* Tags */}
       <h3 className="text-lg font-bold mb-4">Tags</h3>
-      <Tags tags={tags} onSelectionChange={handleTagChange} />
+      <Tags tags={getTags()} onSelectionChange={handleTagChange} />
       <span className="block h-px bg-gray-700 my-4" />
     </div>
   );

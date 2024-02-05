@@ -49,6 +49,7 @@ const ImageCarousel = ({ images, className }: ImageCarouselProp) => {
               alt={`main_carousel-${index}`}
               width={2000}
               height={750}
+              priority={index === 0}
             />
           </div>
         ))}

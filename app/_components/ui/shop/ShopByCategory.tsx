@@ -1,22 +1,19 @@
 import Category from "@/types/models/category";
-import React, {
-  Dispatch,
-  SetStateAction,
-  useMemo,
-  useState,
-} from "react";
+import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
 import ProductGrid from "../../global/ProductGrid";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Product from "@/types/models/product";
-import { getTags } from "@/app/_mocks/handlers/tagsHandler";
 import { CgChevronDown } from "react-icons/cg";
 import { IoIosCloseCircle } from "react-icons/io";
 import Filter from "@/types/models/filter";
 import Sidebar from "./sidebar/Sidebar";
 
-const ShopByCategory = ({ category }: { category: Category }) => {
+interface ShopByCategoryProps {
+  category: Category;
+}
+
+const ShopByCategory = ({ category }: ShopByCategoryProps) => {
   const products = getProducts();
-  const tags = getTags();
   const [filter, setFilter] = useState<Filter>({
     subCategories: [],
     colors: [],
@@ -38,18 +35,20 @@ const ShopByCategory = ({ category }: { category: Category }) => {
 
   const filteredProducts = useMemo(() => {
     return applyFilters(products);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products, filter, sort]);
-  
+
+  const handleFilterChange = (newFilter: Filter) => {
+    setFilter(newFilter);
+  };
 
   return (
     <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-44">
       <div className="flex-1">
         <Sidebar
           filter={filter}
-          setFilter={setFilter}
+          setFilter={handleFilterChange}
           category={category}
-          tags={tags}
         />
       </div>
       <div className="w-px bg-gray-700 hidden sm:block mx-6" />
@@ -100,6 +99,13 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({ filter, setFilter }) => {
           name={name}
           key={`active_filter-${name}`}
           onRemove={() => removeFilter("availability", name)}
+        />
+      ))}
+      {filter.tags?.map((name) => (
+        <FilterChip
+          name={name}
+          key={`active_filter-${name}`}
+          onRemove={() => removeFilter("tags", name)}
         />
       ))}
     </div>

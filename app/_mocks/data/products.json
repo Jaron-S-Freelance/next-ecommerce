@@ -7,6 +7,9 @@
     "imageUrl": "/images/products/geometric-harmony.png",
     "rating": 5,
     "category": "wall_art",
+    "subCategories": ["Posters"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["new_arrival"]
   },
   {
@@ -17,6 +20,9 @@
     "imageUrl": "/images/products/tranquil-vista.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Paintings"],
+    "colors": ["green"],
+    "availability": true,
     "tags": ["featured"]
   },
   {
@@ -27,6 +33,9 @@
     "imageUrl": "/images/products/urban-minimalism.png",
     "rating": 5,
     "category": "wall_art",
+    "subCategories": ["Posters"],
+    "colors": [],
+    "availability": true,
     "tags": ["trending"]
   },
   {
@@ -37,6 +46,9 @@
     "imageUrl": "/images/products/oceanic-essence.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Paintings"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["popular"]
   },
   {
@@ -47,6 +59,9 @@
     "imageUrl": "/images/products/vibrant-florals.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Paintings"],
+    "colors": ["pink", "yellow"],
+    "availability": true,
     "tags": ["new_arrival"]
   },
   {
@@ -57,6 +72,9 @@
     "imageUrl": "/images/products/abstract-mountain-majesty.png",
     "rating": 5,
     "category": "wall_art",
+    "subCategories": ["Paintings"],
+    "colors": ["blue", "green"],
+    "availability": true,
     "tags": ["featured"]
   },
   {
@@ -67,6 +85,9 @@
     "imageUrl": "/images/products/nocturnal-cityscape.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Posters"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["trending"]
   },
   {
@@ -77,6 +98,9 @@
     "imageUrl": "/images/products/geometric-forest.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Wall Decals"],
+    "colors": ["green"],
+    "availability": true,
     "tags": ["popular"]
   },
   {
@@ -87,6 +111,9 @@
     "imageUrl": "/images/products/vibrant-city-abstract.png",
     "rating": 3,
     "category": "wall_art",
+    "subCategories": ["Posters"],
+    "colors": ["yellow", "green"],
+    "availability": true,
     "tags": ["popular"]
   },
   {
@@ -97,9 +124,11 @@
     "imageUrl": "/images/products/oceanic-serenity.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Paintings"],
+    "colors": ["blue", "green"],
+    "availability": true,
     "tags": ["popular", "trending"]
   },
-
   {
     "id": "wallart11",
     "title": "Abstract Elegance",
@@ -108,6 +137,9 @@
     "imageUrl": "/images/products/abstract-elegance.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Posters"],
+    "colors": [],
+    "availability": true,
     "tags": ["featured", "new_arrival"]
   },
   {
@@ -118,6 +150,9 @@
     "imageUrl": "/images/products/botanical-vibrance.png",
     "rating": 4,
     "category": "wall_art",
+    "subCategories": ["Paintings"],
+    "colors": ["green", "yellow"],
+    "availability": true,
     "tags": ["popular"]
   },
   {
@@ -128,6 +163,9 @@
     "imageUrl": "/images/products/geosleek-vase.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Minimalist", "Contemporary"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["trending"]
   },
   {
@@ -138,6 +176,9 @@
     "imageUrl": "/images/products/timeart-wall-clock.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Minimalist", "Contemporary"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["featured", "popular"]
   },
   {
@@ -148,6 +189,9 @@
     "imageUrl": "/images/products/lumincurve-table-lamp.png",
     "rating": 5,
     "category": "home_decor",
+    "subCategories": ["Minimalist", "Contemporary"],
+    "colors": ["green"],
+    "availability": true,
     "tags": ["new_arrival", "featured"]
   },
   {
@@ -158,6 +202,9 @@
     "imageUrl": "/images/products/geovibe-cushion-set.png",
     "rating": 4,
     "category": "cushions_throws",
+    "subCategories": ["Throw Pillows"],
+    "colors": ["green", "blue", "pink"],
+    "availability": true,
     "tags": ["trending", "popular"]
   },
   {
@@ -168,6 +215,9 @@
     "imageUrl": "/images/products/minimalist-abstract-rug.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Minimalist", "Contemporary"],
+    "colors": ["pink"],
+    "availability": true,
     "tags": ["new_arrival", "featured"]
   },
   {
@@ -178,6 +228,9 @@
     "imageUrl": "/images/products/sleekcylindro-planter.png",
     "rating": 5,
     "category": "planters",
+    "subCategories": ["Indoor Planters"],
+    "colors": ["green"],
+    "availability": true,
     "tags": ["trending", "new_arrival"]
   },
   {
@@ -188,6 +241,9 @@
     "imageUrl": "/images/products/pureform-ceramic-vase.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Minimalist"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["new_arrival", "trending"]
   },
   {
@@ -198,6 +254,9 @@
     "imageUrl": "/images/products/linearsleek-wall-shelf.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Minimalist"],
+    "colors": ["yellow"],
+    "availability": true,
     "tags": ["new_arrival", "popular"]
   },
   {
@@ -208,6 +267,9 @@
     "imageUrl": "/images/products/elegarc-floor-lamp.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Minimalist", "Contemporary"],
+    "colors": ["green"],
+    "availability": true,
     "tags": ["new_arrival", "featured"]
   },
   {
@@ -218,17 +280,10 @@
     "imageUrl": "/images/products/geosharp-coffee-table.png",
     "rating": 4,
     "category": "home_decor",
+    "subCategories": ["Contemporary", "Minimalist"],
+    "colors": ["pink"],
+    "availability": true,
     "tags": ["new_arrival", "popular"]
-  },
-  {
-    "id": "HD012",
-    "title": "TrioModern Planters Set",
-    "description": "The TrioModern Planters Set features three distinct yet harmonious designs. Each planter boasts a minimalist shape with a matte finish, varying in height to create visual interest. With a neutral color palette, these planters are perfect for showcasing the natural beauty of plants, adding a contemporary touch to any indoor space.",
-    "price": 60.0,
-    "imageUrl": "/images/products/triomodern-planters-set.png",
-    "rating": 4,
-    "category": "planters",
-    "tags": ["new_arrival", "featured"]
   },
   {
     "id": "MDM-001",
@@ -237,6 +292,7 @@
     "price": 75,
     "imageUrl": "/images/products/eclipse-planter.png",
     "rating": 4,
+    "colors": ["pink"],
     "category": "planters",
     "tags": ["new_arrival", "trending"]
   },
@@ -248,6 +304,9 @@
     "imageUrl": "/images/products/duotrend-cushion-set.png",
     "rating": 5,
     "category": "cushions_throws",
+    "subCategories": ["Throw Pillows"],
+    "colors": ["yellow"],
+    "availability": true,
     "tags": ["trending"]
   },
   {
@@ -258,6 +317,9 @@
     "imageUrl": "/images/products/elegance-trio-pillow-set.png",
     "rating": 4,
     "category": "cushions_throws",
+    "subCategories": ["Throw Pillows"],
+    "colors": ["green"],
+    "availability": true,
     "tags": ["featured", "popular"]
   },
   {
@@ -268,6 +330,9 @@
     "imageUrl": "/images/products/luxcozy-modern-throw.png",
     "rating": 4,
     "category": "cushions_throws",
+    "subCategories": ["Blankets"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["new_arrival", "trending"]
   },
   {
@@ -278,6 +343,9 @@
     "imageUrl": "/images/products/geoaccent-decorative-throw.png",
     "rating": 4,
     "category": "cushions_throws",
+    "subCategories": ["Blankets"],
+    "colors": ["pink"],
+    "availability": true,
     "tags": ["featured", "trending"]
   },
   {
@@ -288,6 +356,9 @@
     "imageUrl": "/images/products/chicherringbone-throw.png",
     "rating": 5,
     "category": "cushions_throws",
+    "subCategories": ["Blankets"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["new_arrival", "popular"]
   },
   {
@@ -298,6 +369,9 @@
     "imageUrl": "/images/products/monocontrast-tableware-set.png",
     "rating": 4,
     "category": "tableware",
+    "subCategories": ["Dinnerware"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["new_arrival", "featured"]
   },
   {
@@ -308,6 +382,9 @@
     "imageUrl": "/images/products/gradientflow-serving-platter-set.png",
     "rating": 4,
     "category": "tableware",
+    "subCategories": ["Dinnerware"],
+    "colors": ["yellow"],
+    "availability": true,
     "tags": ["new_arrival", "popular"]
   },
   {
@@ -318,6 +395,9 @@
     "imageUrl": "/images/products/marbleessence-coaster-set.png",
     "rating": 4,
     "category": "tableware",
+    "subCategories": ["Dinnerware"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["new_arrival", "trending"]
   },
   {
@@ -328,6 +408,9 @@
     "imageUrl": "/images/products/sleekspice-shaker-set.png",
     "rating": 5,
     "category": "tableware",
+    "subCategories": ["Cutlery"],
+    "colors": ["blue"],
+    "availability": true,
     "tags": ["featured"]
   }
 ]
