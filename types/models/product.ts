@@ -13,3 +13,17 @@ export default interface Product {
   availability: boolean;
   tags: string[];
 }
+
+interface Test {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  rating: number;
+  category: string;
+  subCategories: string[];
+  colors: string[];
+  availability: boolean;
+  tags: string[];
+}

@@ -34,7 +34,7 @@
     "rating": 5,
     "category": "wall_art",
     "subCategories": ["Posters"],
-    "colors": [],
+    "colors": ["blue"],
     "availability": true,
     "tags": ["trending"]
   },
