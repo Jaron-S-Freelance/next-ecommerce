@@ -6,6 +6,8 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import ColorSelector, { ColorType } from "../../global/ColorSelector";
 import QuantitySelector from "../../global/QuantitySelector";
 import { useState } from "react";
+import { useGlobalContext } from "@/app/providers/Providers";
+import AddToCart from "./AddToCart";
 
 interface ProductDetailsProps {
   product: Product;
@@ -30,7 +32,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <Image src={imageUrl} alt={""} width={392} height={392} />
         </div>
 
-        <AddToCart />
+        <AddToCart product={product} />
       </div>
     </div>
   );
@@ -57,37 +59,6 @@ const Description = ({
       </div>
       <span className="text-2xl">${price}.00</span>
       <p className="py-4">{description}</p>
-    </div>
-  );
-};
-
-const AddToCart = () => {
-  const [color, setColor] = useState<ColorType | null>("blue");
-  const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
-  return (
-    <div className="flex flex-col items-justify-center">
-      <h3 className="flex py-2">
-        <span className="font-semibold">Color:&nbsp;</span>
-        <span className="capitalize">{color}</span>
-      </h3>
-      <ColorSelector
-        options={buttonColors}
-        selectedColor={color}
-        setSelectedColor={setColor}
-      />
-      <div>
-        <div className="flex items-end gap-5">
-          <QuantitySelector />
-          <button className="btn btn-outline">
-            <FaCartPlus />
-            Add to cart
-          </button>
-        </div>
-        <button className="btn btn-wide my-4">
-          <IoBagCheckOutline />
-          Buy it now
-        </button>
-      </div>
     </div>
   );
 };

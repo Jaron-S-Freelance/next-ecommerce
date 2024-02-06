@@ -7,6 +7,7 @@ import { MouseEventHandler, useEffect } from "react";
 import { FaCartPlus, FaEye } from "react-icons/fa";
 import Rating from "../ui/products/Rating";
 import QuickviewModal from "./QuickviewModal";
+import { useGlobalContext } from "@/app/providers/Providers";
 
 interface ProductCardProps {
   product: Product;
@@ -24,6 +25,7 @@ const ProductCard = ({
   const { id, title, description, price, imageUrl, rating, category } = product;
 
   const router = useRouter();
+  const { addToCart } = useGlobalContext();
 
   const scaleControls = useAnimation();
   const buttonTopControls = useAnimation();
@@ -70,9 +72,17 @@ const ProductCard = ({
     router.push(`/products/${id}`);
   };
 
-  const handleAddCartClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAddCartClick = ({
+    event,
+    product,
+  }: {
+    event: React.MouseEvent<HTMLButtonElement>;
+    product: Product;
+  }) => {
     event.stopPropagation();
+    addToCart(product);
   };
+
   const handleQuickViewClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
   };
@@ -127,7 +137,9 @@ const ProductCard = ({
               >
                 <button
                   className="btn rounded-3xl"
-                  onClick={handleAddCartClick}
+                  onClick={(e) =>
+                    handleAddCartClick({ event: e, product: product })
+                  }
                 >
                   <FaCartPlus />
                   Add to Cart

@@ -1,14 +1,14 @@
-import { getProducts } from "@/app/_mocks/handlers/productHandler";
-import Product from "@/types/models/product";
 import Image from "next/image";
-import { CiShoppingCart } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import QuantitySelector from "../../../global/QuantitySelector";
+import { useGlobalContext } from "@/app/providers/Providers";
+import { CartItem } from "@/types/models/cart";
 
 const Cart = () => {
-  const products: Product[] = getProducts().slice(8, 16);
-  const subtotal = products.reduce((total, product) => {
-    return total + product.price;
+  const { cart } = useGlobalContext();
+  console.log("Cart:", cart, "Type:", typeof cart);
+  const subtotal = cart.reduce((total, item) => {
+    return total + item.product.price;
   }, 0);
 
   return (
@@ -23,7 +23,7 @@ const Cart = () => {
           </div>
           {/* Body */}
           <ul className="menu scrollable-content">
-            <ItemList products={products} />
+            <ItemList items={cart} />
           </ul>
           <Subtotal amount={subtotal} />
           <button className="btn btn-outline m-2">Checkout</button>
@@ -42,20 +42,24 @@ const Cart = () => {
 };
 
 interface ItemListProps {
-  products: Product[];
+  items: CartItem[];
 }
 
-const ItemList = ({ products }: ItemListProps) => {
+const ItemList = ({ items }: ItemListProps) => {
   return (
     <div className="max-h-[50vh] gap-2">
-      {products.map((product) => (
-        <CartItem product={product} key={`cart_item-${product.id}`} />
+      {items.map((product) => (
+        <CartListItem
+          cartItem={product}
+          key={`cart_item-${product.product.id}`}
+        />
       ))}
     </div>
   );
 };
 
-const CartItem = ({ product }: { product: Product }) => {
+const CartListItem = ({ cartItem }: { cartItem: CartItem }) => {
+  const { product, quantity } = cartItem;
   return (
     <div className="flex p-2 gap-4 relative">
       <Image
@@ -68,7 +72,7 @@ const CartItem = ({ product }: { product: Product }) => {
         <span className="text-md font-bold mr-7">{product.title}</span>
         <div className="flex justify-between items-center">
           <span className="font-semibold">${product.price.toFixed(2)}</span>
-          <QuantitySelector size="sm" />
+          <QuantitySelector size="sm" defaultValue={quantity} />
         </div>
       </div>
 

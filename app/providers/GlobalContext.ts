@@ -1,12 +1,15 @@
+import { CartItem } from "@/types/models/cart";
 import Product from "@/types/models/product";
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext } from "react";
 
 interface ContextProps {
-  cart: Product[];
-  setCart: (newCart: Product[]) => void;
+  cart: CartItem[];
+  setCart: (newCart: CartItem[]) => void;
+  addToCart: (product: Product) => void;
 }
 
 export const GlobalContext = createContext<ContextProps>({
-  cart: [],
+  cart: [] as CartItem[],
   setCart: () => {},
+  addToCart: () => {},
 });

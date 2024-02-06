@@ -10,13 +10,3 @@ export default interface Cart {
   totalItems: number;
   totalPrice: number;
 }
-
-// Function to initialize an empty cart
-export const createEmptyCart = (): Cart => {
-  return {
-    items: [],
-    totalItems: 0,
-
-    totalPrice: 0,
-  };
-};

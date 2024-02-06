@@ -1,16 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
 type Size = "xs" | "sm" | "md" | "lg";
 
 interface QuantitySelectorProps {
   size?: Size;
+  defaultValue?: number;
 }
 
-const QuantitySelector = ({ size }: QuantitySelectorProps) => {
-  const [quantity, setQuantity] = useState<number>(0);
+const QuantitySelector = ({ size, defaultValue }: QuantitySelectorProps) => {
+  const [quantity, setQuantity] = useState<number>(defaultValue || 0);
+
+  useEffect(() => {
+    setQuantity(defaultValue || 0);
+  }, [defaultValue]);
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);

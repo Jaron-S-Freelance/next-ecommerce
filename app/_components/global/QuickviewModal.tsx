@@ -6,6 +6,7 @@ import { useState } from "react";
 import QuantitySelector from "./QuantitySelector";
 import { FaCartPlus } from "react-icons/fa";
 import { IoBagCheckOutline } from "react-icons/io5";
+import AddToCart from "../ui/products/AddToCart";
 
 interface QuickviewModalProps {
   product: Product;
@@ -39,25 +40,23 @@ interface QuickviewContentProps {
 }
 
 const QuickviewContent = ({ product }: QuickviewContentProps) => {
-  const { id, title, description, price, imageUrl, rating, category, tags } =
-    product;
+  const { title, imageUrl } = product;
   return (
     <div className="min-h-screen w-full flex flex-col py-4 px-8">
       <h2 className="font-bold text-3xl mb-4">{title}</h2>
       <Image src={imageUrl} alt={""} width={392} height={392} />
-      <AddToCart />
-      <Description description={description} price={price} rating={rating} />
+      <AddToCart product={product} />
+      <Description product={product} />
     </div>
   );
 };
 
 interface DescriptionProps {
-  description: string;
-  price: number;
-  rating: number;
+  product: Product;
 }
 
-const Description = ({ description, price, rating }: DescriptionProps) => {
+const Description = ({ product }: DescriptionProps) => {
+  const { description, price, rating } = product;
   return (
     <div>
       <div className="flex">
@@ -65,37 +64,6 @@ const Description = ({ description, price, rating }: DescriptionProps) => {
       </div>
       <span className="text-2xl">${price}.00</span>
       <p className="py-4">{description}</p>
-    </div>
-  );
-};
-
-const AddToCart = () => {
-  const [color, setColor] = useState<ColorType | null>("blue");
-  const buttonColors: ColorType[] = ["blue", "pink", "yellow"];
-  return (
-    <div className="flex flex-col items-justify-center w-full">
-      <h3 className="flex py-2">
-        <span className="font-semibold">Color:&nbsp;</span>
-        <span className="capitalize">{color}</span>
-      </h3>
-      <ColorSelector
-        options={buttonColors}
-        selectedColor={color}
-        setSelectedColor={setColor}
-      />
-      <div>
-        <div className="flex items-end gap-5">
-          <QuantitySelector size="md" />
-          <button className="btn btn-outline">
-            <FaCartPlus />
-            Add to cart
-          </button>
-        </div>
-        <button className="btn btn-wide my-4">
-          <IoBagCheckOutline />
-          Buy it now
-        </button>
-      </div>
     </div>
   );
 };
