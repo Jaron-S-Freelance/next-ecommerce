@@ -17,7 +17,6 @@ export const GlobalContextProvider = ({
   const [cart, setCart] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product, quantity?: number) => {
-    console.log("Attempting to add to cart:", product);
     const itemInCart = cart.find((item) => item.product.id === product.id);
     if (itemInCart) {
       // Map over the cart to update the quantity of the existing item
@@ -29,7 +28,6 @@ export const GlobalContextProvider = ({
             }
           : item
       );
-      console.log("updating cart with", updatedCart);
       setCart(updatedCart);
     } else {
       // If the item does not exist in the cart, add it as a new entry

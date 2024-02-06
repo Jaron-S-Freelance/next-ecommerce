@@ -11,10 +11,10 @@ interface QuantitySelectorProps {
 }
 
 const QuantitySelector = ({ size, defaultValue }: QuantitySelectorProps) => {
-  const [quantity, setQuantity] = useState<number>(defaultValue || 0);
+  const [quantity, setQuantity] = useState<number>(defaultValue || 1);
 
   useEffect(() => {
-    setQuantity(defaultValue || 0);
+    setQuantity(defaultValue || 1);
   }, [defaultValue]);
 
   const handleIncrement = () => {

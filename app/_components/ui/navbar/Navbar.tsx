@@ -12,6 +12,7 @@ import ProductList from "./ProductCarousel";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import CategoryMenu from "./CategoryMenu";
 import Cart from "./Cart/Cart";
+import { useGlobalContext } from "@/app/providers/Providers";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -98,6 +99,8 @@ const SearchButton = () => {
 };
 
 const CartButton = () => {
+  const { cart } = useGlobalContext();
+
   return (
     <label
       htmlFor="my-drawer-4"
@@ -107,7 +110,7 @@ const CartButton = () => {
     >
       <div className="indicator">
         <CiShoppingCart size="24px" />
-        <span className="badge badge-sm indicator-item">8</span>
+        <span className="badge badge-sm indicator-item">{cart.length}</span>
       </div>
     </label>
   );
