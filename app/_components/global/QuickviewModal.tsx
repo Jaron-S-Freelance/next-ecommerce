@@ -15,19 +15,21 @@ const QuickviewModal = ({ product }: QuickviewModalProps) => {
   return (
     <>
       <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-      <div className="modal scrollable-content" role="dialog">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
+      <dialog className="modal">
+        <div className="modal-box scrollable-content">
+          <label
+            htmlFor="my_modal_7"
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
+            ✕
+          </label>
           <QuickviewContent product={product} />
         </div>
+
         <label className="modal-backdrop" htmlFor="my_modal_7">
           Close
         </label>
-      </div>
+      </dialog>
     </>
   );
 };
