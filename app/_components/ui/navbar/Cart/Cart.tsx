@@ -63,10 +63,14 @@ const CartListItem = ({ cartItem }: { cartItem: CartItem }) => {
   const { product, quantity } = cartItem;
 
   const handleQuantityChange = (value: number) => {
-    console.log("handling quantity change to", value);
     const newCart = cart.map((item) =>
       item.product.id === product.id ? { ...item, quantity: value } : item
     );
+    setCart(newCart);
+  };
+
+  const handleRemove = () => {
+    const newCart = cart.filter((item) => item.product.id !== product.id);
     setCart(newCart);
   };
 
@@ -90,7 +94,10 @@ const CartListItem = ({ cartItem }: { cartItem: CartItem }) => {
         </div>
       </div>
 
-      <button className="btn-xxs-circle hover:bg-slate-800 border border-neutral-content absolute right-0 top-2.5 flex items-center justify-center">
+      <button
+        className="btn-xxs-circle hover:bg-slate-800 border border-neutral-content absolute right-0 top-2.5 flex items-center justify-center"
+        onClick={handleRemove}
+      >
         <IoClose size="12px" />
       </button>
     </div>

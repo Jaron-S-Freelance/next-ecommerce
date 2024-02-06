@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 interface RangeSliderProps {
   min: number;
@@ -16,12 +16,6 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   const [values, setValues] = useState(initialValues);
   const sliderRef = useRef<HTMLDivElement>(null); // Ref for the slider's container for size calculations
 
-  useEffect(() => {
-    if (!arraysEqual(values, initialValues)) {
-      onChange(values);
-    }
-  }, [values, onChange, initialValues]);
-
   const arraysEqual = (a: number[], b: number[]) => {
     if (a === b) return true;
     if (a == null || b == null) return false;
@@ -33,32 +27,54 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
     return true;
   };
 
+  useEffect(() => {
+    if (!arraysEqual(values, initialValues)) {
+      onChange(values);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [values]);
+
   const handleDragStart = (
     index: number,
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    event:
+      | React.MouseEvent<HTMLDivElement, MouseEvent>
+      | React.TouchEvent<HTMLDivElement>
   ) => {
-    const moveHandler = (moveEvent: MouseEvent) => {
-      handleDragMove(index, moveEvent);
+    const startEventType =
+      event.type === "mousedown" ? "mousemove" : "touchmove";
+    const endEventType = event.type === "mousedown" ? "mouseup" : "touchend";
+
+    const moveHandler = (moveEvent: MouseEvent | TouchEvent) => {
+      const effectiveEvent = moveEvent.type.startsWith("touch")
+        ? (moveEvent as TouchEvent).touches[0]
+        : (moveEvent as MouseEvent);
+      handleDragMove(index, effectiveEvent);
     };
 
     const upHandler = () => {
-      document.removeEventListener("mousemove", moveHandler);
-      document.removeEventListener("mouseup", upHandler);
+      document.removeEventListener(startEventType, moveHandler);
+      document.removeEventListener(endEventType, upHandler);
     };
 
-    document.addEventListener("mousemove", moveHandler);
-    document.addEventListener("mouseup", upHandler);
-    event.preventDefault(); // Prevent text selection during drag
+    // Check if the event is a touch event and mark the listener as non-passive if so
+    const isTouchEvent = event.type.startsWith("touch");
+    const listenerOptions = isTouchEvent ? { passive: false } : undefined;
+
+    document.addEventListener(startEventType, moveHandler, listenerOptions);
+    document.addEventListener(endEventType, upHandler); // Up events are usually fine as passive
+    if (isTouchEvent) {
+      // Prevent default if it's a touch event to avoid the warning
+      event.preventDefault();
+    }
   };
 
-  const handleDragMove = (index: number, event: MouseEvent) => {
+  const handleDragMove = (index: number, event: MouseEvent | Touch) => {
     if (!sliderRef.current) return;
 
     const { left, width } = sliderRef.current.getBoundingClientRect();
-    const newPercentage = Math.max(
-      0,
-      Math.min((event.clientX - left) / width, 1)
-    );
+    // Use clientX for MouseEvent and Touch objects
+    const clientX = "clientX" in event ? event.clientX : event.pageX;
+    const newPercentage = Math.max(0, Math.min((clientX - left) / width, 1));
     const newValue = min + newPercentage * (max - min);
 
     setValues((currentValues) => {
@@ -105,6 +121,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
                   left: `calc(${calculatePercentage(value)}% - 0.5rem)`,
                 }}
                 onMouseDown={(event) => handleDragStart(index, event)}
+                onTouchStart={(event) => handleDragStart(index, event)}
               ></div>
             </React.Fragment>
           ))}

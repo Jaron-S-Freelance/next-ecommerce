@@ -104,7 +104,7 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
       setAvailability(filter.availability);
       setTags(filter.tags);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   return (
@@ -139,8 +139,8 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
       <h3 className="text-lg font-bold mb-4">Price</h3>
       <RangeSlider
         min={0}
-        max={500}
-        initialValues={[0, 500]}
+        max={250}
+        initialValues={[0, 250]}
         onChange={handlePriceRangeChange}
       />
       <span className="block h-px bg-gray-700 my-4" />
