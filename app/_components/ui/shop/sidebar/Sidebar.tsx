@@ -46,7 +46,6 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   };
 
   useEffect(() => {
-    // Construct the new filter object
     const newFilter = {
       ...filter,
       subCategories,
@@ -55,10 +54,14 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
       availability,
       tags,
     };
-
-    setFilter(newFilter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colors, subCategories, priceRange, availability, tags]);
+  
+    if (!deepEqual(filter, newFilter)) {
+      console.log("Updating filter due to local state change");
+      setFilter(newFilter);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [colors, subCategories, priceRange, availability, tags, filter]);
+  
 
   function deepEqual(object1: any, object2: any): boolean {
     const keys1 = Object.keys(object1);
@@ -86,26 +89,6 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   function isObject(object: any) {
     return object != null && typeof object === "object";
   }
-
-  useEffect(() => {
-    if (
-      !deepEqual(filter, {
-        ...filter,
-        subCategories,
-        colors,
-        priceRange,
-        availability,
-        tags,
-      })
-    ) {
-      setColors(filter.colors);
-      setSubCategories(filter.subCategories);
-      setPriceRange(filter.priceRange);
-      setAvailability(filter.availability);
-      setTags(filter.tags);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter]);
 
   return (
     <div className="w-64">
