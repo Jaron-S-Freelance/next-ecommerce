@@ -59,7 +59,17 @@ const ItemList = ({ items }: ItemListProps) => {
 };
 
 const CartListItem = ({ cartItem }: { cartItem: CartItem }) => {
+  const { cart, setCart } = useGlobalContext();
   const { product, quantity } = cartItem;
+
+  const handleQuantityChange = (value: number) => {
+    console.log("handling quantity change to", value);
+    const newCart = cart.map((item) =>
+      item.product.id === product.id ? { ...item, quantity: value } : item
+    );
+    setCart(newCart);
+  };
+
   return (
     <div className="flex p-2 gap-4 relative">
       <Image
@@ -72,7 +82,11 @@ const CartListItem = ({ cartItem }: { cartItem: CartItem }) => {
         <span className="text-md font-bold mr-7">{product.title}</span>
         <div className="flex justify-between items-center">
           <span className="font-semibold">${product.price.toFixed(2)}</span>
-          <QuantitySelector size="sm" defaultValue={quantity} />
+          <QuantitySelector
+            size="sm"
+            defaultValue={quantity}
+            onChange={handleQuantityChange}
+          />
         </div>
       </div>
 

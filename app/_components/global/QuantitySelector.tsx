@@ -8,9 +8,14 @@ type Size = "xs" | "sm" | "md" | "lg";
 interface QuantitySelectorProps {
   size?: Size;
   defaultValue?: number;
+  onChange?: (value: number) => void;
 }
 
-const QuantitySelector = ({ size, defaultValue }: QuantitySelectorProps) => {
+const QuantitySelector = ({
+  size,
+  defaultValue,
+  onChange,
+}: QuantitySelectorProps) => {
   const [quantity, setQuantity] = useState<number>(defaultValue || 1);
 
   useEffect(() => {
@@ -18,15 +23,20 @@ const QuantitySelector = ({ size, defaultValue }: QuantitySelectorProps) => {
   }, [defaultValue]);
 
   const handleIncrement = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    const newValue = quantity + 1;
+    setQuantity(newValue);
+    if (onChange) onChange(newValue);
   };
 
   const handleDecrement = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 0 ? prevQuantity - 1 : 0));
+    const newValue = quantity > 0 ? quantity - 1 : 0;
+    setQuantity(newValue);
+    if (onChange) onChange(newValue);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value, 10);
+    if (onChange) onChange(value);
     setQuantity(isNaN(value) ? 0 : value);
   };
 
