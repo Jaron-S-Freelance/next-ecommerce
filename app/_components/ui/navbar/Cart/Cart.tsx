@@ -22,7 +22,7 @@ const Cart = () => {
             <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
           </div>
           {/* Body */}
-          <ul className="menu overflow-hidden overflow-y-auto">
+          <ul className="menu scrollable-content">
             <ItemList products={products} />
           </ul>
           <Subtotal amount={subtotal} />

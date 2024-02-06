@@ -23,6 +23,28 @@ body {
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
+/* Custom scrollbar track */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Custom scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background-color: theme('colors.neutral');
+  border-radius: theme('borderRadius.lg');
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: theme('colors.neutral-content');
+}
+
+/* Scrollbar utility class */
+.scrollable-content {
+  overflow-y: scroll;
+}
+
+
 /* DaisyUI xxs buttons */
 .btn-xxs {
   padding: 0.125rem 0.025rem;

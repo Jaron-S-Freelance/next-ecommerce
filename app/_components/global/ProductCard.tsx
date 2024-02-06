@@ -3,9 +3,10 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { MouseEventHandler, useEffect } from "react";
 import { FaCartPlus, FaEye } from "react-icons/fa";
 import Rating from "../ui/products/Rating";
+import QuickviewModal from "./QuickviewModal";
 
 interface ProductCardProps {
   product: Product;
@@ -77,65 +78,72 @@ const ProductCard = ({
   };
 
   return (
-    <div>
-      <div
-        className="overflow-hidden flex justify-center items-end relative rounded-3xl cursor-pointer"
-        style={{
-          width: width ? width : "250px",
-          height: height ? height : "300px",
-        }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={handleNavigateToProduct}
-      >
-        <motion.div
-          animate={scaleControls}
-          className="w-full h-full transition duration-300 ease-in-out"
+    <>
+      <div>
+        <div
+          className="overflow-hidden flex justify-center items-end relative rounded-3xl cursor-pointer"
+          style={{
+            width: width ? width : "250px",
+            height: height ? height : "300px",
+          }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleNavigateToProduct}
         >
-          <Image
-            src={imageUrl}
-            alt={category}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </motion.div>
-        {/* Action Buttons */}
-        {!disableActions && (
-          <div className="absolute inset-0 flex flex-col justify-center items-center gap-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 500, damping: 50 }}
-              animate={buttonTopControls}
-              initial={{ opacity: 0 }}
-            >
-              <button
-                className="btn rounded-3xl"
-                onClick={handleQuickViewClick}
+          <motion.div
+            animate={scaleControls}
+            className="w-full h-full transition duration-300 ease-in-out"
+          >
+            <Image
+              src={imageUrl}
+              alt={category}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </motion.div>
+          {/* Action Buttons */}
+          {!disableActions && (
+            <div className="absolute inset-0 flex flex-col justify-center items-center gap-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 500, damping: 50 }}
+                animate={buttonTopControls}
+                initial={{ opacity: 0 }}
               >
-                <FaEye />
-                Quick View
-              </button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 500, damping: 50 }}
-              animate={buttonBottomControls}
-              initial={{ opacity: 0 }}
-            >
-              <button className="btn rounded-3xl" onClick={handleAddCartClick}>
-                <FaCartPlus />
-                Add to Cart
-              </button>
-            </motion.div>
-          </div>
-        )}
+                <label
+                  htmlFor="my_modal_7"
+                  onClick={handleQuickViewClick as MouseEventHandler}
+                  className="btn rounded-3xl"
+                >
+                  <FaEye />
+                  Quick View
+                </label>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 500, damping: 50 }}
+                animate={buttonBottomControls}
+                initial={{ opacity: 0 }}
+              >
+                <button
+                  className="btn rounded-3xl"
+                  onClick={handleAddCartClick}
+                >
+                  <FaCartPlus />
+                  Add to Cart
+                </button>
+              </motion.div>
+            </div>
+          )}
+        </div>
+        <Rating rating={rating} />
+        <h3 className="text-center font-medium">
+          <Link href={`/products/${id}`}>{title}</Link>
+        </h3>
+        <span className="flex justify-center">${price.toFixed(2)}</span>
       </div>
-      <Rating rating={rating} />
-      <h3 className="text-center font-medium">
-        <Link href={`/products/${id}`}>{title}</Link>
-      </h3>
-      <span className="flex justify-center">${price.toFixed(2)}</span>
-    </div>
+      <QuickviewModal product={product} />
+    </>
   );
 };
 
