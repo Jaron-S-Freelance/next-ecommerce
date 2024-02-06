@@ -27,44 +27,46 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
     return true;
   };
 
-  useEffect(() => {
-    if (!arraysEqual(values, initialValues)) {
-      onChange(values);
-    }
+  useMemo(() => {
+    if (!arraysEqual(values, initialValues)) onChange(values);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
-  const handleDragStart = (
-    index: number,
-    event:
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-      | React.TouchEvent<HTMLDivElement>
-  ) => {
-    const startEventType =
-      event.type === "mousedown" ? "mousemove" : "touchmove";
-    const endEventType = event.type === "mousedown" ? "mouseup" : "touchend";
+  type DragEvent =
+    | React.MouseEvent<HTMLDivElement, MouseEvent>
+    | React.TouchEvent<HTMLDivElement>;
+
+  const getEventCoordinates = (event: MouseEvent | TouchEvent | Touch) => {
+    if ("touches" in event) return event.touches[0];
+    return event;
+  };
+
+  const handleDragStart = (index: number, event: DragEvent) => {
+    const isTouchEvent = event.type.startsWith("touch");
+    const moveEventType = isTouchEvent ? "touchmove" : "mousemove";
+    const endEventType = isTouchEvent ? "touchend" : "mouseup";
 
     const moveHandler = (moveEvent: MouseEvent | TouchEvent) => {
-      const effectiveEvent = moveEvent.type.startsWith("touch")
-        ? (moveEvent as TouchEvent).touches[0]
-        : (moveEvent as MouseEvent);
+      const effectiveEvent = getEventCoordinates(moveEvent);
       handleDragMove(index, effectiveEvent);
     };
 
-    const upHandler = () => {
-      document.removeEventListener(startEventType, moveHandler);
-      document.removeEventListener(endEventType, upHandler);
+    const cleanup = () => {
+      document.removeEventListener(moveEventType, moveHandler);
+      document.removeEventListener(endEventType, cleanup);
     };
 
-    // Check if the event is a touch event and mark the listener as non-passive if so
-    const isTouchEvent = event.type.startsWith("touch");
-    const listenerOptions = isTouchEvent ? { passive: false } : undefined;
+    document.addEventListener(moveEventType, moveHandler, {
+      passive: false,
+      capture: true,
+    });
+    document.addEventListener(endEventType, cleanup, {
+      passive: false,
+      capture: true,
+    });
 
-    document.addEventListener(startEventType, moveHandler, listenerOptions);
-    document.addEventListener(endEventType, upHandler); // Up events are usually fine as passive
     if (isTouchEvent) {
-      // Prevent default if it's a touch event to avoid the warning
-      event.preventDefault();
+      event.preventDefault(); // Prevent default for touch events to avoid warnings
     }
   };
 
@@ -72,8 +74,15 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
     if (!sliderRef.current) return;
 
     const { left, width } = sliderRef.current.getBoundingClientRect();
-    // Use clientX for MouseEvent and Touch objects
-    const clientX = "clientX" in event ? event.clientX : event.pageX;
+
+    // Define a type guard to check if the event is a MouseEvent
+    const isMouseEvent = (event: MouseEvent | Touch): event is MouseEvent => {
+      return "clientX" in event;
+    };
+
+    // Use the type guard to check the event type and access `clientX` accordingly
+    const clientX = isMouseEvent(event) ? event.clientX : event.pageX;
+
     const newPercentage = Math.max(0, Math.min((clientX - left) / width, 1));
     const newValue = min + newPercentage * (max - min);
 
@@ -81,7 +90,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
       const newValues = [...currentValues];
       newValues[index] = newValue;
 
-      // Prevent the range values from crossing over each other
+      // Prevent the range values from crossing each other
       if (newValues.length > 1) {
         if (index === 0 && newValues[0] > newValues[1]) {
           newValues[0] = newValues[1];
