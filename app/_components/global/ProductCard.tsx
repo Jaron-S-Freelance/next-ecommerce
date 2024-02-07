@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { MouseEventHandler, useEffect } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
 import { FaCartPlus, FaEye } from "react-icons/fa";
 import Rating from "../ui/products/Rating";
 import QuickviewModal from "./QuickviewModal";
@@ -27,6 +27,7 @@ const ProductCard = ({
   const router = useRouter();
   const { addToCart } = useGlobalContext();
 
+  // Animations
   const scaleControls = useAnimation();
   const buttonTopControls = useAnimation();
   const buttonBottomControls = useAnimation();
@@ -68,6 +69,7 @@ const ProductCard = ({
     });
   };
 
+  // User interactions
   const handleNavigateToProduct = () => {
     router.push(`/products/${id}`);
   };
@@ -83,6 +85,7 @@ const ProductCard = ({
     addToCart(product);
   };
 
+  const modalId = `quickview_modal_${product.id}`;
   const handleQuickViewClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
   };
@@ -121,7 +124,7 @@ const ProductCard = ({
                 initial={{ opacity: 0 }}
               >
                 <label
-                  htmlFor="my_modal_7"
+                  htmlFor={modalId}
                   onClick={handleQuickViewClick as MouseEventHandler}
                   className="btn rounded-3xl"
                 >
@@ -154,7 +157,7 @@ const ProductCard = ({
         </h3>
         <span className="flex justify-center">${price.toFixed(2)}</span>
       </div>
-      <QuickviewModal product={product} />
+      <QuickviewModal product={product} modalId={modalId} />
     </>
   );
 };

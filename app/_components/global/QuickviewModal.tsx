@@ -1,25 +1,21 @@
 import Product from "@/types/models/product";
 import Image from "next/image";
 import Rating from "../ui/products/Rating";
-import ColorSelector, { ColorType } from "./ColorSelector";
-import { useState } from "react";
-import QuantitySelector from "./QuantitySelector";
-import { FaCartPlus } from "react-icons/fa";
-import { IoBagCheckOutline } from "react-icons/io5";
 import AddToCart from "../ui/products/AddToCart";
 
 interface QuickviewModalProps {
   product: Product;
+  modalId: string;
 }
 
-const QuickviewModal = ({ product }: QuickviewModalProps) => {
+const QuickviewModal = ({ product, modalId }: QuickviewModalProps) => {
   return (
     <>
-      <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+      <input type="checkbox" id={modalId} className="modal-toggle" />
       <dialog className="modal">
         <div className="modal-box scrollable-content">
           <label
-            htmlFor="my_modal_7"
+            htmlFor={modalId}
             className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
           >
             ✕
@@ -27,7 +23,7 @@ const QuickviewModal = ({ product }: QuickviewModalProps) => {
           <QuickviewContent product={product} />
         </div>
 
-        <label className="modal-backdrop" htmlFor="my_modal_7">
+        <label className="modal-backdrop" htmlFor={modalId}>
           Close
         </label>
       </dialog>
@@ -41,6 +37,7 @@ interface QuickviewContentProps {
 
 const QuickviewContent = ({ product }: QuickviewContentProps) => {
   const { title, imageUrl } = product;
+  console.log(product);
   return (
     <div className="min-h-screen w-full flex flex-col py-4 px-8">
       <h2 className="font-bold text-3xl mb-4">{title}</h2>
