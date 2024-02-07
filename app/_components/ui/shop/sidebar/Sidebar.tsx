@@ -34,7 +34,7 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   };
 
   const handlePriceRangeChange = (selectedPriceRange: number[]) => {
-    setPriceRange(selectedPriceRange);
+      setPriceRange(selectedPriceRange);
   };
 
   const handleAvailabilityChange = (selectedAvailability: string[]) => {
@@ -54,14 +54,13 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
       availability,
       tags,
     };
-  
+
     if (!deepEqual(filter, newFilter)) {
       console.log("Updating filter due to local state change");
       setFilter(newFilter);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colors, subCategories, priceRange, availability, tags, filter]);
-  
 
   function deepEqual(object1: any, object2: any): boolean {
     const keys1 = Object.keys(object1);
