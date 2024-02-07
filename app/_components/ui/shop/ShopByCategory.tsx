@@ -30,7 +30,10 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
   ];
 
   const applyFilters = (products: Product[]): Product[] => {
-    let filteredProducts = products;
+    // Filter by Category
+    let filteredProducts = products.filter(
+      (product) => product.category === category.id
+    );
 
     // Filter by subCategories
     if (filter.subCategories.length > 0) {
