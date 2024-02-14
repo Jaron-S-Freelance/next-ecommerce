@@ -6,6 +6,7 @@ import Filter from "@/types/models/filter";
 import Category from "@/types/models/category";
 import Tags from "./Tags";
 import { getTags } from "@/app/_mocks/handlers/tagsHandler";
+import { IoFilterOutline } from "react-icons/io5";
 
 interface SidebarProps {
   filter: Filter;
@@ -14,6 +15,39 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
+  return (
+    <>
+      <div className="drawer md:drawer-open">
+        <input id="sidebar-drawer" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col items-start">
+          {/* Page content here */}
+          <label
+            htmlFor="sidebar-drawer"
+            className="btn btn-outline btn-sm drawer-button md:hidden"
+          >
+            <IoFilterOutline />
+            Filters
+          </label>
+        </div>
+        <div className="drawer-side md:w-4">
+          <label
+            htmlFor="sidebar-drawer"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <SidebarDrawer
+            filter={filter}
+            setFilter={setFilter}
+            category={category}
+          />
+          <div className="w-px bg-gray-700 hidden sm:block mx-6" />
+        </div>
+      </div>
+    </>
+  );
+};
+
+const SidebarDrawer = ({ filter, setFilter, category }: SidebarProps) => {
   const [colors, setColors] = useState<ColorType[]>(filter.colors);
   const [subCategories, setSubCategories] = useState<string[]>(
     filter.subCategories
@@ -34,7 +68,7 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   };
 
   const handlePriceRangeChange = (selectedPriceRange: number[]) => {
-      setPriceRange(selectedPriceRange);
+    setPriceRange(selectedPriceRange);
   };
 
   const handleAvailabilityChange = (selectedAvailability: string[]) => {
@@ -44,7 +78,6 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   const handleTagChange = (selectedTags: string[]) => {
     setTags(selectedTags);
   };
-
   useEffect(() => {
     const newFilter = {
       ...filter,
@@ -88,9 +121,8 @@ const Sidebar = ({ filter, setFilter, category }: SidebarProps) => {
   function isObject(object: any) {
     return object != null && typeof object === "object";
   }
-
   return (
-    <div className="w-64">
+    <div>
       {/* Collection */}
       <h3 className="text-lg font-bold mb-4">Collection</h3>
       <ul className="flex flex-col gap-1">

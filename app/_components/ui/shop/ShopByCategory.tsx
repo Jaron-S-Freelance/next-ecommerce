@@ -105,23 +105,35 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-44">
-      <div className="flex-1">
+    <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-40 md:pt-44">
+      {/* Container for Sidebar + Filters/Sort on mobile and desktop */}
+      <div className="flex md:block items-center justify-between sm:px-8 md:px-0">
         <Sidebar
           filter={filter}
           setFilter={handleFilterChange}
           category={category}
         />
+        <div className="md:hidden">
+          <Sort
+            options={sortOptions}
+            selectedOption={sort}
+            setSelectedOption={setSort}
+          />
+        </div>
       </div>
-      <div className="w-px bg-gray-700 hidden sm:block mx-6" />
-      <div className="flex flex-col flex-2 w-full">
-        <div className="flex justify-between py-6">
+
+      {/* Right section for desktop, below Sidebar and Sort on mobile */}
+      <div className="flex-1 px-8">
+        <div className="hidden md:flex md:justify-between mb-4">
           <ActiveFilters filter={filter} setFilter={setFilter} />
           <Sort
             options={sortOptions}
             selectedOption={sort}
             setSelectedOption={setSort}
           />
+        </div>
+        <div className="md:hidden mt-4 mb-6">
+          <ActiveFilters filter={filter} setFilter={setFilter} />
         </div>
         <ProductGrid products={filteredProducts} size="md" />
       </div>
@@ -141,7 +153,7 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({ filter, setFilter }) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 my-4">
       {filter.subCategories?.map((name) => (
         <FilterChip
           name={name}
@@ -181,7 +193,7 @@ interface FilterChipProps {
 
 const FilterChip: React.FC<FilterChipProps> = ({ name, onRemove }) => {
   return (
-    <div className="flex items-center capitalize bg-gray-800 rounded-lg p-1 px-3">
+    <div className="flex items-center text-sm md:text-md capitalize bg-gray-800 rounded-lg p-1 px-3">
       {name.replaceAll("_", " ")}
       <IoIosCloseCircle
         className="ml-2 hover:cursor-pointer"
@@ -204,8 +216,11 @@ const Sort = ({ options, selectedOption, setSelectedOption }: SortProps) => {
   };
 
   return (
-    <div className="flex items-center justify-start mr-7">
-      <label htmlFor="sort-dropdown" className="text-nowrap m-2">
+    <div className="flex w-full items-center justify-end">
+      <label
+        htmlFor="sort-dropdown"
+        className="text-nowrap m-2 hidden md:block"
+      >
         Sort by:
       </label>
       <div className="dropdown dropdown-bottom mr-2">

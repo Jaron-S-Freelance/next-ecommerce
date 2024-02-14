@@ -27,8 +27,7 @@ const ColorSelector = ({
   const handleButtonClick = (color: ColorType) => {
     // Single selectable
     if (isSingle) {
-      if (isClearable && color === selectedColor)
-        setSelectedColor(null);
+      if (isClearable && color === selectedColor) setSelectedColor(null);
       else setSelectedColor(color);
     }
     // Multiple selectable
@@ -55,7 +54,7 @@ const ColorSelector = ({
 
   return (
     <>
-      <div className="flex space-x-4 mb-2">
+      <div className="flex space-x-4 mb-2 px-1">
         {options.map((color) => (
           <button
             key={color}
