@@ -12,6 +12,8 @@ import ProductList from "./ProductCarousel";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import CategoryMenu from "./CategoryMenu";
 import { useGlobalContext } from "@/app/providers/Providers";
+import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -161,6 +163,9 @@ const Profile = () => {
 };
 
 const MobileMenu = () => {
+  const router = useRouter();
+  const categories = getCategories();
+
   return (
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -181,22 +186,33 @@ const MobileMenu = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-64"
       >
         <li>
-          <a>Shop</a>
+          <div tabIndex={1} className="collapse">
+            <div className="text-lg flex items-center -mb-2">Shop</div>
+            <div className="collapse-content flex flex-col">
+              {categories.map((category) => (
+                <a
+                  key={`mobile-menu-category-${category.id}`}
+                  className="hover:cursor-pointer hover:underline"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    router.push(category.url);
+                  }}
+                >
+                  {category.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a className="text-lg text-gray-500">About</a>
         </li>
         <li>
-          <a>Popular</a>
-        </li>
-        <li>
-          <a>New Arrivals</a>
-        </li>
-        <li>
-          <a>About</a>
-        </li>
-        <li>
-          <a>Contact</a>
+          <a className="text-lg text-gray-500">Contact</a>
         </li>
       </ul>
     </div>
