@@ -105,9 +105,9 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-40 md:pt-44">
+    <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-40 md:pt-44 md:space-x-8">
       {/* Container for Sidebar + Filters/Sort on mobile and desktop */}
-      <div className="flex md:block items-center justify-between sm:px-8 md:px-0">
+      <div className="flex md:block items-center justify-between xs:px-4 sm:px-8 md:px-0">
         <Sidebar
           filter={filter}
           setFilter={handleFilterChange}
@@ -123,7 +123,7 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
       </div>
 
       {/* Right section for desktop, below Sidebar and Sort on mobile */}
-      <div className="flex-1 px-8">
+      <div className="">
         <div className="hidden md:flex md:justify-between mb-4">
           <ActiveFilters filter={filter} setFilter={setFilter} />
           <Sort
@@ -223,7 +223,7 @@ const Sort = ({ options, selectedOption, setSelectedOption }: SortProps) => {
       >
         Sort by:
       </label>
-      <div className="dropdown dropdown-bottom mr-2">
+      <div className="dropdown dropdown-bottom md:mr-2">
         <div
           tabIndex={0}
           role="button"

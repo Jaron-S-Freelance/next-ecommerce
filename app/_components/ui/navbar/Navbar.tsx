@@ -11,7 +11,6 @@ import "@/app/styles/navbar.css";
 import ProductList from "./ProductCarousel";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import CategoryMenu from "./CategoryMenu";
-import Cart from "./Cart/Cart";
 import { useGlobalContext } from "@/app/providers/Providers";
 
 const Navbar = () => {
@@ -27,11 +26,11 @@ const Navbar = () => {
       <div className="navbar-start">
         <MobileMenu />
         <Link
-          className="text-2xl mx-8 flex items-center font-semibold"
+          className="flex sm:mx-8 text-lg xs:text-xl sm:text-2xl font-semibold items-center"
           href={"/"}
         >
           <Image src={"/logo-grey.png"} alt={"logo"} width={75} height={75} />
-          Fusion Design
+          <span className="block">Fusion Design</span>
         </Link>
       </div>
       {/* Navigation */}
@@ -75,26 +74,40 @@ const SearchButton = () => {
   };
 
   return (
-    <motion.div
-      initial={false}
-      animate={isSearchOpen ? "open" : "closed"}
-      variants={variants}
-      className="flex items-center overflow-hidden cursor-pointer mx-4"
-      onClick={() => (isSearchOpen ? null : setIsSearchOpen(true))}
-    >
-      {isSearchOpen && (
-        <motion.input
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 0.2 }}
-          type="text"
-          placeholder="Search..."
-          className="input input-bordered flex-1 pl-11 font-sans"
-          ref={wrapperRef}
-        />
-      )}
-      <CiSearch size="24px" className="absolute translate-x-3" />
-    </motion.div>
+    <>
+      <motion.div
+        initial={false}
+        animate={isSearchOpen ? "open" : "closed"}
+        variants={variants}
+        className="items-center overflow-hidden cursor-pointer mx-3 hidden sm:flex"
+        onClick={() => (isSearchOpen ? null : setIsSearchOpen(true))}
+      >
+        {isSearchOpen && (
+          <motion.input
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            transition={{ duration: 0.2 }}
+            type="text"
+            placeholder="Search..."
+            className="input input-bordered focus:outline-none flex-1 pl-11 font-sans"
+            ref={wrapperRef}
+          />
+        )}
+        <CiSearch size="24px" className="absolute translate-x-3" />
+      </motion.div>
+      <div className="dropdown dropdown-bottom dropdown-end mx-3 sm:hidden">
+        <div tabIndex={0} role="button">
+          <CiSearch size="24px" />
+        </div>
+        <div>
+          <input
+            tabIndex={0}
+            placeholder="Search..."
+            className="dropdown-content z-[1] p-3 shadow bg-base-100 rounded-box w-52"
+          />
+        </div>
+      </div>
+    </>
   );
 };
 
