@@ -31,7 +31,12 @@ const Navbar = () => {
           className="flex sm:mx-8 text-lg xs:text-xl sm:text-2xl font-semibold items-center"
           href={"/"}
         >
-          <Image src={"/logo-grey.png"} alt={"logo"} width={75} height={75} />
+          <Image
+            src={"/fusion-logo-white.png"}
+            alt={"logo"}
+            width={50}
+            height={50}
+          />
           <span className="block">Fusion Design</span>
         </Link>
       </div>
