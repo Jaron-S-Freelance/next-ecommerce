@@ -12,7 +12,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
-  const images = carouselData.map((item) => item.imageUrl);
 
   useEffect(() => {
     const productData = getProducts();
@@ -26,7 +25,7 @@ export default function Home() {
         <meta name="description" content={""} />
       </Head>
       <Layout>
-        <Carousel images={images} />
+        <Carousel carouselItems={carouselData} className="mb-40" />
         <CategoryCards />
         <HomepageProducts />
       </Layout>

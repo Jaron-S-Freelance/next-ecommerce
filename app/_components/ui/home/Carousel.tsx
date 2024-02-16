@@ -3,15 +3,20 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import "@/app/styles/homeCarousel.css";
+import Link from "next/link";
+import CarouselItem from "@/types/models/carouselItem";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa";
 
 interface ImageCarouselProp {
-  images: string[];
+  carouselItems: CarouselItem[];
   className?: string;
 }
 
-const ImageCarousel = ({ images, className }: ImageCarouselProp) => {
+const ImageCarousel = ({ carouselItems, className }: ImageCarouselProp) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -41,23 +46,44 @@ const ImageCarousel = ({ images, className }: ImageCarouselProp) => {
   return (
     <div className={`embla ${className}`} ref={emblaRef}>
       <div className="embla__container">
-        {images.map((image, index) => (
-          <div className="embla__slide" key={index}>
-            <Image
-              className="embla__img"
-              src={image}
-              alt={`main_carousel-${index}`}
-              width={2000}
-              height={750}
-              priority={index === 0}
-            />
-          </div>
+        {carouselItems.map((item, index) => (
+          <>
+            <div className="embla__slide" key={index}>
+              <div>
+                <Image
+                  src={item.imageUrl}
+                  alt={`main_carousel-${index}`}
+                  width={2000}
+                  height={750}
+                  priority={index === 0}
+                />
+                <Link
+                  href={item.url || "#"}
+                  className="embla__floating-btn btn"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  View Collection
+                  <motion.div
+                    animate={{
+                      opacity: isHovered ? 1 : 0,
+                      width: isHovered ? 16 : 0,
+                      transition: { duration: 0.3 },
+                    }}
+                    className="-mr-1"
+                  >
+                    <FaArrowRight />
+                  </motion.div>
+                </Link>
+              </div>
+            </div>
+          </>
         ))}
       </div>
       <PrevButton onClick={scrollPrev} />
       <NextButton onClick={scrollNext} />
       <IndicatorDots
-        slides={images.length}
+        slides={carouselItems.length}
         selectedIndex={selectedIndex}
         onSelect={onSelectSlide}
       />

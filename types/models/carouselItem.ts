@@ -1,4 +1,4 @@
-export default interface Product {
+export default interface CarouselItem {
   id: string;
   url: string;
   imageUrl: string;
