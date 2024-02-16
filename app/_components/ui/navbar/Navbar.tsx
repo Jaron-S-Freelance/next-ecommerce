@@ -120,6 +120,9 @@ const SearchButton = () => {
 
 const CartButton = () => {
   const { cart } = useGlobalContext();
+  const cartSize = cart
+    .map((item) => item.quantity)
+    .reduce((acc, current) => acc + current, 0);
 
   return (
     <label
@@ -130,7 +133,7 @@ const CartButton = () => {
     >
       <div className="indicator">
         <CiShoppingCart size="24px" />
-        <span className="badge badge-sm indicator-item">{cart.length}</span>
+        <span className="badge badge-sm indicator-item">{cartSize}</span>
       </div>
     </label>
   );

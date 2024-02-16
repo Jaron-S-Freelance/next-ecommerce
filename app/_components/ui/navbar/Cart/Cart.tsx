@@ -6,7 +6,7 @@ import { CartItem } from "@/types/models/cart";
 
 const Cart = () => {
   const { cart } = useGlobalContext();
-  console.log("Cart:", cart, "Type:", typeof cart);
+
   const subtotal = cart.reduce((total, item) => {
     return total + item.product.price;
   }, 0);
