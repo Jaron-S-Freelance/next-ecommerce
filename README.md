@@ -47,23 +47,23 @@ The project is organized into the following main directories:
 To set up and run the project locally:
 
 1. Clone the repository:
-   ^
+   `
    git clone https://your-repository-link
-   ^
+   `
 2. Navigate to the project directory:
-   ^
+   `
    cd your-project-directory
-   ^
+   `
 3. Install dependencies:
-   ^
+   `
    npm install
-   ^
+   `
 4. Start the development server:
-   ^
+   `
    npm run dev
-   ^
+   `
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
 ## Future Plans
 
-The roadmap for this project includes the development of a robust backend to support core ecommerce functionalities such as user authentication, product management, order processing, and payment gateway integration. Enhanced user personalization features like wish lists and personalized recommendations are also planned to enrich the shopping experience.
+The roadmap for this project includes the development of a robust backend to support core e-commerce functionalities such as user authentication, product management, order processing, and payment gateway integration. Enhanced user personalization features like wish lists and personalized recommendations are also planned to enrich the shopping experience.
