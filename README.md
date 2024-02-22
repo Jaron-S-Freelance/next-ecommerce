@@ -3,10 +3,11 @@
 ## Table of Contents
 
 1. [About the Project](#about-the-project)
-2. [Technologies](#technologies)
-3. [Folder Structure](#folder-structure)
-4. [Getting Started](#getting-started)
-5. [Future Plans](#future-plans)
+2. [Live Demo](#live-demo)
+3. [Technologies](#technologies)
+4. [Folder Structure](#folder-structure)
+5. [Getting Started](#getting-started)
+6. [Future Plans](#future-plans)
 
 ## About the Project
 
