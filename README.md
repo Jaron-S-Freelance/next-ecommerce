@@ -1,4 +1,4 @@
-# High-End Ecommerce Front-End | NextJS 13 Web App
+# High-End Ecommerce Front-End | NextJS Website
 
 ## Table of Contents
 
