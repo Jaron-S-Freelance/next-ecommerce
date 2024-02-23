@@ -16,7 +16,6 @@ interface ImageCarouselProp {
 const ImageCarousel = ({ carouselItems, className }: ImageCarouselProp) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -57,24 +56,7 @@ const ImageCarousel = ({ carouselItems, className }: ImageCarouselProp) => {
                   height={750}
                   priority={index === 0}
                 />
-                <Link
-                  href={item.url || "#"}
-                  className="embla__floating-btn btn"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  View Collection
-                  <motion.div
-                    animate={{
-                      opacity: isHovered ? 1 : 0,
-                      width: isHovered ? 16 : 0,
-                      transition: { duration: 0.3 },
-                    }}
-                    className="-mr-1"
-                  >
-                    <FaArrowRight />
-                  </motion.div>
-                </Link>
+                <CollectionLink item={item} />
               </div>
             </div>
           </>
@@ -126,5 +108,32 @@ const IndicatorDots: React.FC<{
     ))}
   </div>
 );
+
+const CollectionLink = ({ item }: { item: CarouselItem }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div className="embla__floating-btn">
+      <Link
+        href={item.url || "#"}
+        className="btn btn-xs sm:btn-md"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        View Collection
+        <motion.div
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            width: isHovered ? 16 : 0,
+            transition: { duration: 0.3 },
+          }}
+          className="-mr-1"
+        >
+          <FaArrowRight />
+        </motion.div>
+      </Link>
+    </div>
+  );
+};
 
 export default ImageCarousel;
