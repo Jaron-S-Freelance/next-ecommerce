@@ -1,6 +1,6 @@
 "use client";
 
-import Layout from "@/app/_components/layout/Layout";
+import PageLayout from "@/app/_components/layout/PageLayout";
 import ProductDetails from "@/app/_components/ui/products/ProductDetails";
 import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import Head from "next/head";
@@ -13,7 +13,7 @@ const productDetails = ({ params }: { params: { id: string } }) => {
         <title>Fusion Design | Product</title>
         <meta name="description" content={""} />
       </Head>
-      <Layout>{product && <ProductDetails product={product} />}</Layout>
+      <PageLayout>{product && <ProductDetails product={product} />}</PageLayout>
     </>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import Layout from "@/app/_components/layout/Layout";
+import PageLayout from "@/app/_components/layout/PageLayout";
 import ShopByCategory from "@/app/_components/ui/shop/ShopByCategory";
 import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import Head from "next/head";
@@ -19,7 +19,9 @@ const category = ({ params }: { params: { id: string } }) => {
         <meta name="description" content={""} />
       </Head>
 
-      <Layout>{category && <ShopByCategory category={category} />}</Layout>
+      <PageLayout>
+        {category && <ShopByCategory category={category} />}
+      </PageLayout>
     </>
   );
 };
