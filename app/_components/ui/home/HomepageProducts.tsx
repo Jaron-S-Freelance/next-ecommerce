@@ -32,7 +32,7 @@ const HomepageProducts = () => {
         setSelectedFilter={setSelectedFilter}
       />
 
-      <h2 className="text-center font-bold text-5xl m-2 mb-16">
+      <h2 className="text-center font-bold text-4xl sm:text-5xl m-2 mb-16">
         {selectedTagTitle}
       </h2>
       <ProductGrid products={filteredProducts} size="lg" />
