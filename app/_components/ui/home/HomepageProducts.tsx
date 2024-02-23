@@ -13,8 +13,6 @@ const HomepageProducts = () => {
     product.tags?.includes(selectedFilter)
   );
 
-  console.log("filtered: ", selectedFilter, filteredProducts);
-
   const selectedTagTitle =
     selectedFilter === "featured"
       ? "Featured Products"
@@ -25,7 +23,7 @@ const HomepageProducts = () => {
       : null;
 
   return (
-    <div className="flex flex-col items-center my-16">
+    <div className="flex flex-col max-w-screen items-center my-16">
       <h3 className="font-semibold text-md text-center underline underline-offset-2 mb-2">
         TOP PICKS
       </h3>
@@ -52,10 +50,10 @@ const FilterSelector = ({
   setSelectedFilter,
 }: FilterSelectorProps) => {
   return (
-    <div className="w-full flex justify-center py-4">
+    <div className="flex justify-center py-4 max-w-xl">
       <div className="flex justify-between gap-2">
         <button
-          className={`btn rounded-full ${
+          className={`btn rounded-full max-w-24 sm:max-w-48 ${
             selectedFilter === "popular" ? "btn-outline" : "btn-ghost"
           }`}
           onClick={() => setSelectedFilter("popular")}
@@ -63,7 +61,7 @@ const FilterSelector = ({
           Popular Items
         </button>
         <button
-          className={`btn rounded-full ${
+          className={`btn rounded-full max-w-24 sm:max-w-48 ${
             selectedFilter === "featured" ? "btn-outline" : "btn-ghost"
           }`}
           onClick={() => setSelectedFilter("featured")}
@@ -71,7 +69,7 @@ const FilterSelector = ({
           Featured Products
         </button>
         <button
-          className={`btn rounded-full ${
+          className={`btn rounded-full max-w-24 sm:max-w-48 ${
             selectedFilter === "new_arrival" ? "btn-outline" : "btn-ghost"
           }`}
           onClick={() => setSelectedFilter("new_arrival")}

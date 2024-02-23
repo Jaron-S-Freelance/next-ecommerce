@@ -36,7 +36,7 @@ const ProductGrid = ({ products, size }: ProductGridProps) => {
   }, [products]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-screen overflow-auto">
       <div className="flex flex-wrap gap-8 justify-center">
         {limitedProducts.map((product) => (
           <ProductCard
