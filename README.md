@@ -48,7 +48,7 @@ To set up and run the project locally:
 
 1. Clone the repository:
    `
-   git clone https://github.com/Jaron-S-Freelance/next-ecommerce
+   git clone https://github.com/Jaron-S/next-ecommerce
    `
 2. Navigate to the project directory:
    `
