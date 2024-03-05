@@ -11,7 +11,7 @@
 
 ## About the Project
 
-This project is a high-end e-commerce front-end, built with NextJS 13 to offer a premium shopping experience with a sleek design and intuitive user interface. Currently, the app operates with mocked data, demonstrating the potential for a fully functional e-commerce platform. Future developments include backend integration for complete e-commerce functionality.
+This project is a high-end e-commerce front-end, built with NextJS 13, designed to offer a premium shopping experience with a sleek design and intuitive user interface. The front-end is now integrated with a Django backend, enhancing the app with complete e-commerce functionality. This integration facilitates features such as dynamic product listings, user authentication, order processing, and real-time data updates, moving beyond the initially mocked data to a fully functional e-commerce platform.
 
 ## Live Demo
 
@@ -46,23 +46,37 @@ The project is organized into the following main directories:
 
 To set up and run the project locally:
 
-1. Clone the repository:
-   `
-   git clone https://github.com/Jaron-S/next-ecommerce
-   `
-2. Navigate to the project directory:
-   `
-   cd your-project-directory
-   `
-3. Install dependencies:
-   `
-   npm install
-   `
-4. Start the development server:
-   `
-   npm run dev
-   `
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+1. **Clone the front-end repository:**
+   `git clone https://github.com/Jaron-S/next-ecommerce`
+
+2. **Clone the Django backend repository:**
+   `git clone https://github.com/Jaron-S/fusion_design_server`
+   Follow the setup instructions provided on the Django repository's GitHub page to configure the backend.
+
+3. **Install dependencies:**
+   - Navigate to the Next.js project directory and run:
+     npm install
+   - Navigate to the Django project directory and follow the installation instructions provided in its README.
+
+4. **Configure environment variables:**
+   - In the Next.js project, create a `.env.local` file and add the Django server's address as an environment variable. Example:
+     `DJANGO_SERVER_URL=https://your-django-server-address.com`
+   - Update the `next.config.js` file to include the server URL in the environment variables section:
+     ```
+     module.exports = {
+       env: {
+         DJANGO_SERVER_URL: process.env.DJANGO_SERVER_URL,
+       },
+     };
+     ```
+
+5. **Start the development servers:**
+   - Start the Next.js development server:
+     `npm run dev`
+   - Start the Django development server by following the instructions provided in the Django repository.
+
+6. **Verify the setup:**
+   Open http://localhost:3000 in your browser to view the Next.js app and ensure it is correctly fetching data from the Django backend.
 
 ## Future Plans
 
