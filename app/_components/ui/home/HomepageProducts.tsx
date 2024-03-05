@@ -1,13 +1,16 @@
 "use client";
 
-import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useState,
+} from "react";
 import ProductGrid from "../../global/ProductGrid";
-import { getProducts } from "@/app/_mocks/handlers/productHandler";
-import Product from "@/types/models/product";
+import { useGlobalContext } from "@/app/providers/Providers";
 
 const HomepageProducts = () => {
+  const { products } = useGlobalContext();
   const [selectedFilter, setSelectedFilter] = useState("featured");
-  const products: Product[] = getProducts();
 
   const filteredProducts = products.filter((product) =>
     product.tags?.includes(selectedFilter)

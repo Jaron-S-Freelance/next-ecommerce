@@ -108,8 +108,8 @@ const ProductCard = ({
             className="w-full h-full transition duration-300 ease-in-out"
           >
             <Image
-              src={imageUrl}
-              alt={category}
+              src={`${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`}
+              alt={imageUrl}
               fill
               style={{ objectFit: "cover" }}
             />

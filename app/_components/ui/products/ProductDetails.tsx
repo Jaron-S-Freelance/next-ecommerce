@@ -5,36 +5,45 @@ import { FaCartPlus } from "react-icons/fa";
 import { IoBagCheckOutline } from "react-icons/io5";
 import ColorSelector, { ColorType } from "../../global/ColorSelector";
 import QuantitySelector from "../../global/QuantitySelector";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/app/providers/Providers";
 import AddToCart from "./AddToCart";
 
 interface ProductDetailsProps {
-  product: Product;
+  productId: string;
 }
 
-const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const { id, title, description, price, imageUrl, rating, category, tags } =
-    product;
+const ProductDetails = ({ productId }: ProductDetailsProps) => {
+  const { products } = useGlobalContext();
+  const product = products.find((product) => product.id === productId);
+  const { title, description, price, imageUrl, rating } =
+    product || ({} as Product);
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-36 md:gap-12 xl:gap-24">
-      <div className="flex-1">
-        <Description
-          title={title}
-          description={description}
-          price={price}
-          rating={rating}
-        />
-      </div>
-      <div className="w-px bg-gray-700 hidden sm:block" />
-      <div className="flex flex-col flex-1">
-        <div className="flex justify-center md:justify-start">
-          <Image src={imageUrl} alt={""} width={392} height={392} />
+    product && (
+      <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-36 md:gap-12 xl:gap-24">
+        <div className="flex-1">
+          <Description
+            title={title}
+            description={description}
+            price={price}
+            rating={rating}
+          />
         </div>
+        <div className="w-px bg-gray-700 hidden sm:block" />
+        <div className="flex flex-col flex-1">
+          <div className="flex justify-center md:justify-start">
+            <Image
+              src={`${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`}
+              alt={""}
+              width={392}
+              height={392}
+            />
+          </div>
 
-        <AddToCart product={product} />
+          <AddToCart product={product} />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

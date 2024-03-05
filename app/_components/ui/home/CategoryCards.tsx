@@ -1,8 +1,12 @@
-import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
+"use client";
+
+import { getCategories } from "@/services/categoryHandler";
+import { useGlobalContext } from "@/app/providers/Providers";
+import Category from "@/types/models/category";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 interface CategoryCardProps {
@@ -10,7 +14,8 @@ interface CategoryCardProps {
 }
 
 const CategoryCards = () => {
-  const categories = getCategories();
+  const { categories } = useGlobalContext();
+
   return (
     <div className="my-16">
       <h3 className="font-semibold text-md text-center underline underline-offset-2">
@@ -19,6 +24,8 @@ const CategoryCards = () => {
       <h2 className="font-bold text-5xl text-center mt-4">Collections</h2>
       <div className="flex flex-wrap justify-center gap-16 m-8">
         {categories.map((category, index) => {
+          const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}/media/images${category.url}.png`;
+          console.log(imageUrl);
           // Alternate sizes: larger cards for even indices, smaller for odd
           const isLarge = index % 2 === 0;
           const width = isLarge ? 256 : 196;
@@ -28,7 +35,7 @@ const CategoryCards = () => {
             <CategoryCard
               key={index}
               categoryName={category.name}
-              imageUrl={category.imageUrl}
+              imageUrl={imageUrl}
               url={category.url}
               width={width}
               height={height}

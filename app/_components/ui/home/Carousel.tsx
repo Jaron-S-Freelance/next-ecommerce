@@ -47,15 +47,17 @@ const ImageCarousel = ({ carouselItems, className }: ImageCarouselProp) => {
       <div className="embla__container">
         {carouselItems.map((item, index) => (
           <>
-            <div className="embla__slide" key={index}>
+            <div className="embla__slide" key={`main_carousel-${index}`}>
               <div>
-                <Image
-                  src={item.imageUrl}
-                  alt={`main_carousel-${index}`}
-                  width={2000}
-                  height={750}
-                  priority={index === 0}
-                />
+                {item.imageUrl && (
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${item.imageUrl}`}
+                    alt={item.url}
+                    width={2000}
+                    height={750}
+                    priority={index === 0}
+                  />
+                )}
                 <CollectionLink item={item} />
               </div>
             </div>

@@ -1,19 +1,28 @@
 import Category from "@/types/models/category";
-import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import ProductGrid from "../../global/ProductGrid";
-import { getProducts } from "@/app/_mocks/handlers/productHandler";
+import { getProducts } from "@/services/productHandler";
 import Product from "@/types/models/product";
 import { CgChevronDown } from "react-icons/cg";
 import { IoIosCloseCircle } from "react-icons/io";
 import Filter from "@/types/models/filter";
 import Sidebar from "./sidebar/Sidebar";
+import { getCategories } from "@/services/categoryHandler";
+import { useGlobalContext } from "@/app/providers/Providers";
 
 interface ShopByCategoryProps {
-  category: Category;
+  categoryId: string;
 }
 
-const ShopByCategory = ({ category }: ShopByCategoryProps) => {
-  const products: Product[] = getProducts();
+const ShopByCategory = ({ categoryId }: ShopByCategoryProps) => {
+  const { categories, products } = useGlobalContext();
+  const [category, setCategory] = useState<Category>();
   const [filter, setFilter] = useState<Filter>({
     subCategories: [],
     colors: [],
@@ -32,7 +41,7 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
   const applyFilters = (products: Product[]): Product[] => {
     // Filter by Category
     let filteredProducts = products.filter(
-      (product) => product.category === category.id
+      (product) => product.category === category?.id
     );
 
     // Filter by subCategories
@@ -104,15 +113,27 @@ const ShopByCategory = ({ category }: ShopByCategoryProps) => {
     setFilter(newFilter);
   };
 
+  useEffect(() => {
+    const fetchCategory = async () => {
+      const selectedCategory = categories.find(
+        (category) => category.id === categoryId
+      );
+      setCategory(selectedCategory);
+    };
+    fetchCategory();
+  }, [categories, categoryId]);
+
   return (
     <div className="min-h-screen w-full flex flex-col md:flex-row p-8 pt-40 md:pt-44 md:space-x-8">
       {/* Container for Sidebar + Filters/Sort on mobile and desktop */}
       <div className="flex md:block items-center justify-between xs:px-4 sm:px-8 md:px-0">
-        <Sidebar
-          filter={filter}
-          setFilter={handleFilterChange}
-          category={category}
-        />
+        {category && (
+          <Sidebar
+            filter={filter}
+            setFilter={handleFilterChange}
+            category={category}
+          />
+        )}
         <div className="md:hidden">
           <Sort
             options={sortOptions}

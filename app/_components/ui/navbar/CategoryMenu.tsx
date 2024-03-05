@@ -1,18 +1,18 @@
-import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
+import { useGlobalContext } from "@/app/providers/Providers";
 import Category from "@/types/models/category";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const CategoryMenu = () => {
-  const categories = getCategories();
+  const { categories } = useGlobalContext();
 
   return (
     <div className="">
       <div className="flex justify-center gap-8 mx-8">
-        {categories.map((category) => {
+        {categories?.map((category) => {
           return (
             <div
               key={`categoryMenu-${category.name}`}
@@ -57,7 +57,8 @@ const CategoryImage = ({
   className,
 }: CategoryCardProps) => {
   const router = useRouter();
-  const { name, imageUrl, url } = category;
+  const { name, url } = category;
+  const imageUrl = `${process.env.NEXT_PUBLIC_API_URL}/media/images${category.url}.png`;
   const [isHovered, setIsHovered] = useState(false);
 
   return (

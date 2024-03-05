@@ -37,11 +37,15 @@ interface QuickviewContentProps {
 
 const QuickviewContent = ({ product }: QuickviewContentProps) => {
   const { title, imageUrl } = product;
-  console.log(product);
   return (
     <div className="min-h-screen w-full flex flex-col py-4 px-8">
       <h2 className="font-bold text-3xl mb-4">{title}</h2>
-      <Image src={imageUrl} alt={""} width={392} height={392} />
+      <Image
+        src={`${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`}
+        alt={""}
+        width={392}
+        height={392}
+      />
       <AddToCart product={product} />
       <Description product={product} />
     </div>

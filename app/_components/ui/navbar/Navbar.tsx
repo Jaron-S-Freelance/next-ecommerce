@@ -4,15 +4,13 @@ import useOutsideAlerter from "@/hooks/useOutsideAlerter";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
 import { IoChevronDownOutline } from "react-icons/io5";
 import "@/app/styles/navbar.css";
 import ProductList from "./ProductCarousel";
-import { getProducts } from "@/app/_mocks/handlers/productHandler";
 import CategoryMenu from "./CategoryMenu";
 import { useGlobalContext } from "@/app/providers/Providers";
-import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
@@ -172,7 +170,7 @@ const Profile = () => {
 
 const MobileMenu = () => {
   const router = useRouter();
-  const categories = getCategories();
+  const { categories } = useGlobalContext();
 
   return (
     <div className="dropdown">
@@ -313,9 +311,12 @@ const ShopDropdown = () => {
 };
 
 const PopularDropdown = () => {
-  const popularProducts = getProducts().filter((product) =>
-    product.tags?.includes("popular")
-  );
+  const { products } = useGlobalContext();
+
+  const popularProducts = useMemo(() => {
+    return products.filter((product) => product.tags?.includes("popular"));
+  }, [products]);
+
   return (
     <div
       className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-6 px-24 lg:px-36"
@@ -328,9 +329,12 @@ const PopularDropdown = () => {
 };
 
 const NewArrivalsDropdown = () => {
-  const newProducts = getProducts().filter((product) =>
-    product.tags?.includes("new_arrival")
-  );
+  const { products } = useGlobalContext();
+
+  const newProducts = useMemo(() => {
+    return products.filter((product) => product.tags?.includes("new_arrival"));
+  }, [products]);
+
   return (
     <div
       className="absolute left-0 w-full bg-base-300 border-t border-slate-700 shadow z-10 p-6 px-24 lg:px-36"

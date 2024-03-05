@@ -2,16 +2,11 @@
 
 import PageLayout from "@/app/_components/layout/PageLayout";
 import ShopByCategory from "@/app/_components/ui/shop/ShopByCategory";
-import { getCategories } from "@/app/_mocks/handlers/categoryHandler";
 import Head from "next/head";
 import React from "react";
 
 const category = ({ params }: { params: { id: string } }) => {
   const categoryId = params.id;
-  const category = getCategories().find(
-    (category) => category.id === categoryId
-  );
-  console.log(category);
   return (
     <>
       <Head>
@@ -20,7 +15,7 @@ const category = ({ params }: { params: { id: string } }) => {
       </Head>
 
       <PageLayout>
-        {category && <ShopByCategory category={category} />}
+        <ShopByCategory categoryId={categoryId} />
       </PageLayout>
     </>
   );
