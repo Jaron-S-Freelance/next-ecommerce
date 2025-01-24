@@ -9,7 +9,7 @@ type LayoutProps = {
 
 const PageLayout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <div data-theme="dark">
       <Header />
       <main>{children}</main>
       <Cart />
